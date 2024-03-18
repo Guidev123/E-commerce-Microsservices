@@ -1,6 +1,6 @@
 # YourSneakerEnterprise👟
 
-<strong>YourSneakerEnterprise é um e-commerce de tênis, projetado para atender às necessidades dos aficionados por calçados esportivos mais exigentes. Desenvolvido com .NET 8.0 em ASP.NET MVC, além de incorporar os princípios de microserviços, o YourSneakerEnterprise oferece uma experiência de compra excepcionalmente fluida e personalizada. Está aplicação está dividida em 6 Web Api Rest, sendo elas: Identidade, Carrinho, Catalogo, Cliente, Pedido e Pagamento.
+<strong>YourSneakerEnterprise é um e-commerce de tênis. Desenvolvido com .NET 8.0 em ASP.NET MVC, além de incorporar os princípios de microserviços, o YourSneakerEnterprise oferece uma experiência de compra excepcionalmente fluida e personalizada. Está aplicação está dividida em 6 Web Api Rest, sendo elas: Identidade, Carrinho, Catalogo, Cliente, Pedido e Pagamento.
 
 Caminho para Api: <br>
 src -> Services -> Api
