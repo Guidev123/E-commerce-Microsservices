@@ -1,15 +1,34 @@
-var builder = WebApplication.CreateBuilder(args);
+using Microsoft.AspNetCore.Hosting.Internal;
+using Microsoft.Extensions.Hosting.Internal;
+using YourSneaker.WebApp.MVC.Configuration;
+using YourSneaker.WebApp.MVC.Extensions;
 
-// Add services to the container.
+
+//========================================== Configura Ambiente ===============================================/
+var builder = WebApplication.CreateBuilder(args);
+builder.Configuration
+    .SetBasePath(builder.Environment.ContentRootPath)
+    .AddJsonFile("appsettings.json", true, true)
+    .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", true, true)
+    .AddEnvironmentVariables();
+//================================================ Fim ========================================================/
+
+
+builder.Services.AddIdentityConfiguration();//IDENTITY CONFIG AND COOKIES CONFIG
+
+
+builder.Services.RegisterServices();
 builder.Services.AddControllersWithViews();
+
+builder.Services.Configure<AppSettings>(builder.Configuration);
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+
 if (!app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    app.UseExceptionHandler("/erro/500");
+    app.UseStatusCodePagesWithRedirects("/erro/{0}");
     app.UseHsts();
 }
 
@@ -18,7 +37,9 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthorization();
+app.UseIdentityConfiguration();//AUTHENTICATION AND AUTHORIZATION SETUP
+
+app.UseMiddleware<ExceptionMiddleware>();//USING CUSTOM MIDDLEWARE
 
 app.MapControllerRoute(
     name: "default",
