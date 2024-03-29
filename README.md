@@ -36,10 +36,9 @@ https://github.com/Guidev123/YourSneakerEnterprise/assets/155389912/e980f175-017
 <h3>Implementando a API de Identidade:</h3>
 
 <strong>Funcionamento:</strong>
+https://github.com/Guidev123/YourSneakerEnterprise/assets/155389912/cadf9ccb-ff13-4caf-83a1-2a9d470de3c9
 
 https://github.com/Guidev123/YourSneakerEnterprise/assets/155389912/c74e35b3-df8b-46b5-b085-cd9f9446fee8
-
-https://github.com/Guidev123/YourSneakerEnterprise/assets/155389912/cadf9ccb-ff13-4caf-83a1-2a9d470de3c9
 
 <hr/>
 <h3>API de Catalogo, Carrinho, Cliente, Pedido e Pagamento:</h3>
