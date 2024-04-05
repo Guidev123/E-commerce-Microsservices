@@ -30,6 +30,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\YourSneaker.WebAPI.Core\YourSneaker.WebAPI.Core.csproj" />
+    <ProjectReference Include="..\..\Building Blocks\YourSneaker.Core\YourSneaker.WebApi.Core\YourSneaker.WebApi.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

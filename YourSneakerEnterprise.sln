@@ -13,35 +13,39 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{66
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identidade", "Identidade", "{2D9C29F9-88BE-4985-83F6-63CA48CD42CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YourSneaker.Identidade.API", "src\Services\YourSneaker.Identidade.API\YourSneaker.Identidade.API.csproj", "{4061904B-3203-4420-A3FF-6FFA6FF428FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YourSneaker.Identidade.API", "src\Services\YourSneaker.Identidade.API\YourSneaker.Identidade.API.csproj", "{4061904B-3203-4420-A3FF-6FFA6FF428FC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mvc", "Mvc", "{BB0AEC94-D4F4-4943-9EBB-34509F903883}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YourSneaker.WebApp.MVC", "src\Web\YourSneaker.WebApp.MVC\YourSneaker.WebApp.MVC.csproj", "{798B4949-EDFD-446E-B02C-DAFAFE66A4FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YourSneaker.WebApp.MVC", "src\Web\YourSneaker.WebApp.MVC\YourSneaker.WebApp.MVC.csproj", "{798B4949-EDFD-446E-B02C-DAFAFE66A4FF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{34B38634-4BE6-4C66-B831-5A1316C1BB08}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YourSneaker.Core", "src\Building Blocks\YourSneaker.Core\YourSneaker.Core.csproj", "{83327BEC-0483-4192-A5CF-D329EC74668A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YourSneaker.Core", "src\Building Blocks\YourSneaker.Core\YourSneaker.Core.csproj", "{83327BEC-0483-4192-A5CF-D329EC74668A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Pedido", "Pedido", "{C0FD6319-2C39-4FAC-9AEC-E06D8D8D40D6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YourSneaker.Pedido.API", "src\Services\YourSneaker.Pedido.API\YourSneaker.Pedido.API.csproj", "{6F5DD23A-B7D0-4EC8-8A1A-1D9EDE9A80D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YourSneaker.Pedido.API", "src\Services\YourSneaker.Pedido.API\YourSneaker.Pedido.API.csproj", "{6F5DD23A-B7D0-4EC8-8A1A-1D9EDE9A80D9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Carrinho", "Carrinho", "{E3A4482B-41A3-472B-AF5D-0FC239B0545B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YourSneaker.Carrinho.API", "src\Services\YourSneaker.Carrinho.API\YourSneaker.Carrinho.API.csproj", "{B1EB7D99-B137-4D1D-B4F1-DBA48322DD3D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YourSneaker.Carrinho.API", "src\Services\YourSneaker.Carrinho.API\YourSneaker.Carrinho.API.csproj", "{B1EB7D99-B137-4D1D-B4F1-DBA48322DD3D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Pagamento", "Pagamento", "{C21E6C2C-CE88-4D64-AB54-A4F833CFAA06}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YourSneaker.Pagamento.API", "src\Services\YourSneaker.Pagamento.API\YourSneaker.Pagamento.API.csproj", "{295B6EAD-63E8-41AD-9EA7-0043C2B02DCD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YourSneaker.Pagamento.API", "src\Services\YourSneaker.Pagamento.API\YourSneaker.Pagamento.API.csproj", "{295B6EAD-63E8-41AD-9EA7-0043C2B02DCD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cliente", "Cliente", "{B70FEBFD-8D84-46C3-97C6-E5DEE2F2C5A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YourSneaker.Cliente.API", "src\Services\YourSneaker.Cliente.API\YourSneaker.Cliente.API.csproj", "{68367D8A-F200-4DED-A292-CB2F614245BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YourSneaker.Cliente.API", "src\Services\YourSneaker.Cliente.API\YourSneaker.Cliente.API.csproj", "{68367D8A-F200-4DED-A292-CB2F614245BE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catalogo", "Catalogo", "{4CC9BB21-7751-45D6-8F2E-DD0640C9FE49}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YourSneaker.Catalogo.API", "src\Services\YourSneaker.Catalogo.API\YourSneaker.Catalogo.API.csproj", "{C109B504-07BD-4EBF-8BBD-AC7424BF600A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YourSneaker.Catalogo.API", "src\Services\YourSneaker.Catalogo.API\YourSneaker.Catalogo.API.csproj", "{C109B504-07BD-4EBF-8BBD-AC7424BF600A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{6548FAD8-FD6B-4844-867D-5E698A5FFFAD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YourSneaker.WebAPI.Core", "YourSneaker.WebAPI.Core\YourSneaker.WebAPI.Core.csproj", "{8BD9657B-E044-426F-99E9-602F75E08916}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +85,10 @@ Global
 		{C109B504-07BD-4EBF-8BBD-AC7424BF600A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C109B504-07BD-4EBF-8BBD-AC7424BF600A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C109B504-07BD-4EBF-8BBD-AC7424BF600A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BD9657B-E044-426F-99E9-602F75E08916}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BD9657B-E044-426F-99E9-602F75E08916}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BD9657B-E044-426F-99E9-602F75E08916}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BD9657B-E044-426F-99E9-602F75E08916}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -105,6 +113,8 @@ Global
 		{68367D8A-F200-4DED-A292-CB2F614245BE} = {B70FEBFD-8D84-46C3-97C6-E5DEE2F2C5A5}
 		{4CC9BB21-7751-45D6-8F2E-DD0640C9FE49} = {66B2AC50-17CF-4282-8760-3BBE85E9887B}
 		{C109B504-07BD-4EBF-8BBD-AC7424BF600A} = {4CC9BB21-7751-45D6-8F2E-DD0640C9FE49}
+		{6548FAD8-FD6B-4844-867D-5E698A5FFFAD} = {A11F5342-6BF3-4B7E-BB24-B4FF1657C856}
+		{8BD9657B-E044-426F-99E9-602F75E08916} = {6548FAD8-FD6B-4844-867D-5E698A5FFFAD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {99F1D630-8420-47C2-9578-4BBA0E2DF4E7}

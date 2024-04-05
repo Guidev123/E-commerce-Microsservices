@@ -6,15 +6,16 @@ using Microsoft.OpenApi.Models;
 using YourSneaker.Identidade.API.Data;
 using System.Text;
 using YourSneaker.Identidade.API.Extensions;
+using YourSneaker.WebAPI.Core.Identidade;
 
-//========================================== Configura Ambiente ===============================================/
+//========================================== Environment Configure ===============================================/
 var builder = WebApplication.CreateBuilder(args);
 builder.Configuration
     .SetBasePath(builder.Environment.ContentRootPath)
     .AddJsonFile("appsettings.json", true, true)
     .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", true, true)
     .AddEnvironmentVariables();
-//================================================ Fim ========================================================/
+//================================================ END ========================================================/
 
 
 // DATA BASE CONFIG
@@ -32,33 +33,7 @@ builder.Services
     .AddDefaultTokenProviders();
 
 //JWT CONFIG
-
-var appSettingsSection = builder.Configuration.GetSection("AppSettings");
-builder.Services.Configure<AppSettings>(appSettingsSection);
-
-var appSettings = appSettingsSection.Get<AppSettings>();
-var key = Encoding.ASCII.GetBytes(appSettings.Secret);
-
-builder.Services.AddAuthentication(options =>
-{
-    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-})
-    .AddJwtBearer(bearerOptions => 
-{
-    bearerOptions.RequireHttpsMetadata = true;
-    bearerOptions.SaveToken = true;
-    bearerOptions.TokenValidationParameters = new TokenValidationParameters
-    {
-        ValidateIssuerSigningKey = true,
-        IssuerSigningKey = new SymmetricSecurityKey(key),
-        ValidateIssuer = true,
-        ValidateAudience = true,
-        ValidAudience = appSettings.ValidoEm,
-        ValidIssuer = appSettings.Emissor
-    };
-});
-                                   
+builder.Services.AddJwtConfiguration(builder.Configuration);                         
 
 builder.Services.AddControllers();
 
@@ -85,8 +60,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseAuthorization();
-app.UseAuthorization();
+app.UseAuthConfiguration();
 
 app.MapControllers();
 

@@ -1,5 +1,5 @@
-﻿namespace YourSneaker.Identidade.API.Extensions
-{
+﻿namespace YourSneaker.WebAPI.Core.Identidade
+{ 
     public class AppSettings
     {
         public string Secret { get; set; }

@@ -1,6 +1,0 @@
-@YourSneaker.Catalogo.API_HostAddress = http://localhost:5187
-
-GET {{YourSneaker.Catalogo.API_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

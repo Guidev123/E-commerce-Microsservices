@@ -5,8 +5,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using YourSneaker.Identidade.API.Extensions;
-using YourSneaker.Identidade.API.Models;
+using YourSneaker.WebAPI.Core.Identidade;
 using static YourSneaker.Identidade.API.Models.UserViewModels;
 
 namespace YourSneaker.Identidade.API.Controllers

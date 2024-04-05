@@ -3,7 +3,6 @@ using Microsoft.Extensions.Hosting.Internal;
 using YourSneaker.WebApp.MVC.Configuration;
 using YourSneaker.WebApp.MVC.Extensions;
 
-
 //========================================== Configura Ambiente ===============================================/
 var builder = WebApplication.CreateBuilder(args);
 builder.Configuration
@@ -43,6 +42,6 @@ app.UseMiddleware<ExceptionMiddleware>();//USING CUSTOM MIDDLEWARE
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Catalogo}/{action=Index}/{id?}");
 
 app.Run();
