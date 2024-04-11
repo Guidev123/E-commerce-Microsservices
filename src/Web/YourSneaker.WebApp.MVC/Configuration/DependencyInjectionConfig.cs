@@ -1,4 +1,5 @@
-﻿using YourSneaker.WebApp.MVC.Extensions;
+﻿using Polly;
+using YourSneaker.WebApp.MVC.Extensions;
 using YourSneaker.WebApp.MVC.Service;
 using YourSneaker.WebApp.MVC.Service.handlers;
 
@@ -12,8 +13,12 @@ namespace YourSneaker.WebApp.MVC.Configuration
 
             services.AddHttpClient<IAutenticacaoService, AutenticacaoService>();
 
+
             services.AddHttpClient<ICatalogoService, CatalogoService>()
-                .AddHttpMessageHandler<HttpClientAuthDelegatingHandler>();
+                .AddHttpMessageHandler<HttpClientAuthDelegatingHandler>()
+                .AddPolicyHandler(PollyExtensions.EsperarTentar())
+                .AddTransientHttpErrorPolicy(
+                    p => p.CircuitBreakerAsync(5, TimeSpan.FromSeconds(30)));
 
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
@@ -22,3 +27,4 @@ namespace YourSneaker.WebApp.MVC.Configuration
         }
     }
 }
+

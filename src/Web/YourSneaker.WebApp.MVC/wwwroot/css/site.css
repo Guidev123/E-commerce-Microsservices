@@ -77,3 +77,16 @@ textarea {
     max-width: 400px;
 }
 
+.imagebanner {
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+}
+@media (max-width: 768px) {
+    .banner {
+        width: 100%; /* ou outra largura desejada */
+    }
+}
+
