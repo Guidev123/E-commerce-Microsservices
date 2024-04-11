@@ -6,14 +6,16 @@ namespace YourSneaker.WebApp.MVC.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        [Route("sistema-fora-do-ar")]
+        public IActionResult SistemaForaDoAr()
         {
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
+            var modelErro = new ErrorViewModel
+            {
+                Mensagem = "O sistema está temporariamente fora do ar, pode ocorrer pelo excesso de requisições de usuarios.",
+                Titulo = "Sistema Fora do ar.",
+                ErroCode = 500,
+            };
+            return View("Error", modelErro);
         }
 
         [Route("erro/{id:length(3,3)}")]
