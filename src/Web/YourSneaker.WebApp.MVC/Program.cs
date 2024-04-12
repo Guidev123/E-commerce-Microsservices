@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Hosting.Internal;
 using Microsoft.Extensions.Hosting.Internal;
+using System.Globalization;
 using YourSneaker.WebApp.MVC.Configuration;
 using YourSneaker.WebApp.MVC.Extensions;
 
@@ -37,6 +38,16 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseIdentityConfiguration();//AUTHENTICATION AND AUTHORIZATION SETUP
+
+//Culture config
+var supportedCultures = new[] { new CultureInfo("pt-br") };
+app.UseRequestLocalization(new RequestLocalizationOptions 
+{
+    DefaultRequestCulture = new Microsoft.AspNetCore.Localization.RequestCulture("pt-br"),
+    SupportedCultures = supportedCultures,
+    SupportedUICultures = supportedCultures
+});
+
 
 app.UseMiddleware<ExceptionMiddleware>();//USING CUSTOM MIDDLEWARE
 

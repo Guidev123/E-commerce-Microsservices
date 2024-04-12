@@ -7,18 +7,24 @@
 
 <section>
     <div>
-        <div style="background-image: url(images/banners/bannerProdutos.jpg); height: 100%; background-position: center; background-repeat: no-repeat; background-size: cover">
+@*         <div style="background-image: url(images/banners/bannerProdutos.jpg); height: 100%; background-position: center; background-repeat: no-repeat; background-size: cover">
             <div style="text-align: center;">
                  <img src="~/images/banners/bannerProdutos.jpg" /> 
             </div>
+        </div> *@
+        <div>
+            <div>
+                <img src="~/images/banners/bannerProdutos.jpg" style="width: 100%; height: auto;" />
+            </div>
         </div>
+
         <div class="container" style=" padding-top: 20px">
             <div class="row">
                 @{
                     foreach (var produto in Model.OrderBy(p=>p.Nome))
                     {
                         <div class="col-md-3">
-                            <div href="#" class="card card-product-grid">
+                            <div href="#" class="c">
                                 <a asp-controller="Catalogo" asp-action="ProdutoDetalhe" asp-route-id="@produto.Id" class="img-wrap">
                                     <img src="~/images/produtos/@produto.Imagem" alt="@produto.Nome">
                                 </a>
@@ -28,12 +34,12 @@
                                     </a>
 
                                     <small class="card-text">
-                                        @produto.QuantidadeEstoque<br/><br/>
+                                        @this.StockMessage(produto.QuantidadeEstoque)<br/><br/>
                                         @produto.Descricao
                                     </small>
                                 </figcaption>
                                 <div class="card-footer price mt-1">
-                                    <h3>R$@produto.Valor</h3>
+                                    <h3>@this.MoneyFormat(produto.Valor)</h3>
                                 </div>
                             </div>
                         </div>
