@@ -3,13 +3,15 @@
 @{
     ViewData["Title"] = Model.Nome;
 }
-<section class="section-content padding-y bg container">
+
+
+<section class="section-content container">
     <div class="card">
         <div class="row no-gutters">
             <aside class="col-md-6">
-                <article class="gallery-wrap">
-                    <div class="img-big-wrap" style="text-align: center">
-                        <img src="~/images/produtos/@Model.Imagem" alt="@Model.Nome">
+                <article class="gallery-wrap" style="max-width: 100vw;">
+                    <div class="aa" style="text-align: center;">
+                        <img src="~/images/produtos/@Model.Imagem" alt="@Model.Nome" style="width: 500px; height: auto;">
                     </div>
                 </article>
             </aside>
@@ -36,7 +38,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <var class="price h4">@this.MoneyFormat(Model.Valor)</var>
+                        <var class="title">@this.MoneyFormat(Model.Valor)</var>
                     </div>
 
                     <h5>@Model.Descricao</h5><br />

@@ -7,8 +7,8 @@ using YourSneaker.Core.DomainObjects;
 
 namespace YourSneaker.Core.Data
 {
-    public interface IRepository<T> : IDisposable where T : IAggregrateRoot
+    public interface IRepository<T> : IDisposable where T : IAggregateRoot
     {
-
+        IUnitOfWork UnitOfWork { get; }
     }
 }

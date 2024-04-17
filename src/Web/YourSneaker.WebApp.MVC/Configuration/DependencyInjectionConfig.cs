@@ -1,4 +1,6 @@
-﻿using Polly;
+﻿using Microsoft.AspNetCore.Mvc.DataAnnotations;
+using Microsoft.Extensions.Options;
+using Polly;
 using YourSneaker.WebApp.MVC.Extensions;
 using YourSneaker.WebApp.MVC.Service;
 using YourSneaker.WebApp.MVC.Service.handlers;
@@ -9,6 +11,9 @@ namespace YourSneaker.WebApp.MVC.Configuration
     {
         public static void RegisterServices(this IServiceCollection services) 
         {
+            services.AddSingleton<IValidationAttributeAdapterProvider, CpfValidationAttributeAdapterProvider>();
+
+
             services.AddTransient<HttpClientAuthDelegatingHandler>();
 
             services.AddHttpClient<IAutenticacaoService, AutenticacaoService>();

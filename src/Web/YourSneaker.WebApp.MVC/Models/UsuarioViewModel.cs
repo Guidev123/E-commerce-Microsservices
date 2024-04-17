@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using YourSneaker.WebApp.MVC.Extensions;
 
@@ -8,6 +9,16 @@ namespace YourSneaker.WebApp.MVC.Models
     {
         public class UsuarioRegistro
         {
+
+            [Required(ErrorMessage = "O campo {0} é obrigatório")]
+            [DisplayName("Nome completo")]
+            public string Nome { get; set; }
+
+            [Required(ErrorMessage = "O campo {0} é obrigatório")]
+            [DisplayName("CPF")]
+            [Cpf]
+            public string Cpf { get; set; }
+
             [Required(ErrorMessage = "O campo {0} é obrigatório")]
             [EmailAddress(ErrorMessage = "O campo {0} foi digitado em formato inválido")]
             public string Email { get; set; }

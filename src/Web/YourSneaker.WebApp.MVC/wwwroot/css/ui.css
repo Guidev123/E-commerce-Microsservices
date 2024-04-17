@@ -470,12 +470,18 @@ p:last-child {
     padding-bottom: 1rem;
 }
 
-.brand-wrap .logo, .navbar-brand .logo {
+.brand-wrap, .navbar-brand .logo {
     margin-right: 7px;
     max-height: 42px;
     display: inline-block;
 }
-
+.logoS {
+    margin-right: 7px;
+    max-height: 42px;
+    display: inline-block;
+    border-radius: 50%;
+    overflow: hidden;
+}
 .navbar-main .nav-link {
     font-weight: 600;
     color: #1c1c1c;

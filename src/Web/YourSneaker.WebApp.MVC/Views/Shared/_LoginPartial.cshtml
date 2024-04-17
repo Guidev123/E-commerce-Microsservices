@@ -25,11 +25,13 @@
 }
 else
 {
-    <div class="widget-header">
-        <small class="title text-muted">Bem vindo!</small>
-        <div>
-            <a asp-controller="Identidade" asp-action="Registro">Crie sua conta</a> <span> | </span>
-            <a asp-controller="Identidade" asp-action="Login"> Login</a>
+        <div class="dropdown">
+            <div class="dropdown-content">
+                <small class="title text-muted">Bem vindo!</small>
+                <div>
+                    <a asp-controller="Identidade" asp-action="Registro" >Crie sua conta</a> <span> | </span>
+                    <a asp-controller="Identidade" asp-action="Login"> Login</a>
+                </div>
+            </div>
         </div>
-    </div>
 }

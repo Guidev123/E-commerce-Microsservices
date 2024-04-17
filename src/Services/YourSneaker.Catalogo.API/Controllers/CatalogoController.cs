@@ -3,13 +3,13 @@ using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using YourSneaker.Catalogo.API.Data.Repository;
 using YourSneaker.Catalogo.API.Models;
+using YourSneaker.WebAPI.Core.Controllers;
 using YourSneaker.WebAPI.Core.Identidade;
 
 namespace YourSneaker.Catalogo.API.Controllers
 {
-    [ApiController]
     [Authorize]
-    public class CatalogoController : Controller
+    public class CatalogoController : MainController
     {
         private readonly IProdutoRepository _produtoRepository;
 
