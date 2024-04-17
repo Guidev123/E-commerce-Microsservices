@@ -30,8 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\YourSneaker.WebAPI.Core\YourSneaker.WebAPI.Core.csproj" />
-    <ProjectReference Include="..\..\Building Blocks\YourSneaker.Core\YourSneaker.WebApi.Core\YourSneaker.WebApi.Core.csproj" />
+    <ProjectReference Include="..\..\Building Blocks\YourSneaker.WebAPI.Core\YourSneaker.WebAPI.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>
