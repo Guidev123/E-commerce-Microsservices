@@ -45,7 +45,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{65
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YourSneaker.WebAPI.Core", "src\Building Blocks\YourSneaker.WebAPI.Core\YourSneaker.WebAPI.Core.csproj", "{8BD9657B-E044-426F-99E9-602F75E08916}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YourSneaker.Clientes.API", "src\Services\YourSneaker.Clientes.API\YourSneaker.Clientes.API\YourSneaker.Clientes.API.csproj", "{D3FD21ED-0048-4D4C-8D50-57339A42FFD4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YourSneaker.Clientes.API", "src\Services\YourSneaker.Clientes.API\YourSneaker.Clientes.API\YourSneaker.Clientes.API.csproj", "{D3FD21ED-0048-4D4C-8D50-57339A42FFD4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MessageBus", "MessageBus", "{1B82910A-CA4C-4B79-8B57-73A565673FE7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YourSneaker.MessageBus", "src\Building Blocks\YourSneaker.MessageBus\YourSneaker.MessageBus.csproj", "{5B5A2D1A-7EF2-44EB-935F-70C0759AA500}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -89,6 +93,10 @@ Global
 		{D3FD21ED-0048-4D4C-8D50-57339A42FFD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D3FD21ED-0048-4D4C-8D50-57339A42FFD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D3FD21ED-0048-4D4C-8D50-57339A42FFD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B5A2D1A-7EF2-44EB-935F-70C0759AA500}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B5A2D1A-7EF2-44EB-935F-70C0759AA500}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B5A2D1A-7EF2-44EB-935F-70C0759AA500}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B5A2D1A-7EF2-44EB-935F-70C0759AA500}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -115,6 +123,8 @@ Global
 		{6548FAD8-FD6B-4844-867D-5E698A5FFFAD} = {A11F5342-6BF3-4B7E-BB24-B4FF1657C856}
 		{8BD9657B-E044-426F-99E9-602F75E08916} = {6548FAD8-FD6B-4844-867D-5E698A5FFFAD}
 		{D3FD21ED-0048-4D4C-8D50-57339A42FFD4} = {B70FEBFD-8D84-46C3-97C6-E5DEE2F2C5A5}
+		{1B82910A-CA4C-4B79-8B57-73A565673FE7} = {A11F5342-6BF3-4B7E-BB24-B4FF1657C856}
+		{5B5A2D1A-7EF2-44EB-935F-70C0759AA500} = {1B82910A-CA4C-4B79-8B57-73A565673FE7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {99F1D630-8420-47C2-9578-4BBA0E2DF4E7}

@@ -7,6 +7,7 @@ using YourSneaker.Identidade.API.Data;
 using System.Text;
 using YourSneaker.Identidade.API.Extensions;
 using YourSneaker.WebAPI.Core.Identidade;
+using YourSneaker.Identidade.API.Configuration;
 
 //========================================== Environment Configure ===============================================/
 var builder = WebApplication.CreateBuilder(args);
@@ -33,7 +34,8 @@ builder.Services
     .AddDefaultTokenProviders();
 
 //JWT CONFIG
-builder.Services.AddJwtConfiguration(builder.Configuration);                         
+builder.Services.AddJwtConfiguration(builder.Configuration);
+builder.Services.AddMessageBusConfiguration(builder.Configuration);
 
 builder.Services.AddControllers();
 

@@ -6,6 +6,7 @@ using YourSneaker.Clientes.API.Models;
 using YourSneaker.Clientes.API.Data.Repository;
 using YourSneaker.Clientes.API.Data;
 using YourSneaker.Clientes.API.Aplication.Events;
+using YourSneaker.Clientes.API.Services;
 
 namespace YourSneaker.Clientes.API.Configuration
 {

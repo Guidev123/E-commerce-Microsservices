@@ -5,6 +5,8 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using YourSneaker.Core.Messages.Integration;
+using YourSneaker.MessageBus;
 using YourSneaker.WebAPI.Core.Controllers;
 using YourSneaker.WebAPI.Core.Identidade;
 using static YourSneaker.Identidade.API.Models.UserViewModels;
@@ -18,14 +20,18 @@ namespace YourSneaker.Identidade.API.Controllers
         private readonly UserManager<IdentityUser> _userManager;
         private readonly AppSettings _appSettings;
 
+        private readonly IMessageBus _bus;
+
         public AuthController(SignInManager<IdentityUser> signInManager,
                                 UserManager<IdentityUser> userManager,
-                                IOptions<AppSettings> appSettings)
+                                IOptions<AppSettings> appSettings,
+                                IMessageBus bus)
 
         {
             _signInManager = signInManager;
             _userManager = userManager;
             _appSettings = appSettings.Value;
+            _bus = bus;
         }
 
         [HttpPost("nova-conta")]
@@ -44,6 +50,15 @@ namespace YourSneaker.Identidade.API.Controllers
 
             if (result.Succeeded)
             {
+                var clienteResult = await RegistraCliente(usuarioRegistro);
+
+
+                if (!clienteResult.ValidationResult.IsValid)
+                {
+                    await _userManager.DeleteAsync(user);
+                    return CustomResponse(clienteResult.ValidationResult);
+                }
+
                 return CustomResponse(await GerarJwt(usuarioRegistro.Email));
             }
 
@@ -54,6 +69,27 @@ namespace YourSneaker.Identidade.API.Controllers
 
             return CustomResponse();
         }
+
+        private async Task<ResponseMessage> RegistraCliente(UsuarioRegistro usuarioRegistro)
+        {
+            var usuario = await _userManager.FindByEmailAsync(usuarioRegistro.Email);
+            var usuarioRegistrado = new UsuarioRegistradoIntegrationEvent(
+                Guid.Parse(usuario.Id), usuarioRegistro.Nome, usuarioRegistro.Email, usuarioRegistro.Cpf
+                );
+
+            try
+            {
+                return await _bus.RequestAsync<UsuarioRegistradoIntegrationEvent, ResponseMessage>(usuarioRegistrado);
+            }
+
+            catch
+            {
+                await _userManager.DeleteAsync(usuario);
+                throw;
+            }
+        }
+
+
 
         [HttpPost("autenticar")]
         public async Task<ActionResult> Login(UsuarioLogin usuarioLogin)
