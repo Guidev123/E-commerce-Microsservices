@@ -25,7 +25,7 @@ namespace YourSneaker.Clientes.API.Aplication.Commands
 
             if (clienteExistente != null)
             {
-                AdicionarErro("Este cpf já está em uso.");
+                AdicionarErro("Este CPF já está em uso.");
                 return ValidationResult;
             }
 

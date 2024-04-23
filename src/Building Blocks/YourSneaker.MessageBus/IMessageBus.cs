@@ -6,6 +6,7 @@ namespace YourSneaker.MessageBus
     public interface IMessageBus : IDisposable
     {
         bool IsConnected { get; }
+        IAdvancedBus AdvancedBus { get; }
         void Publish<T>(T message) where T : IntegrationEvent;
 
         Task PublishAsync<T>(T message) where T : IntegrationEvent;

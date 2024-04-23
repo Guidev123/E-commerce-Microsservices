@@ -11,8 +11,8 @@ namespace YourSneaker.Clientes.API.Configuration
             {
                 c.SwaggerDoc("v1", new OpenApiInfo()
                 {
-                    Title = "YourSneaker Enterprise Catalogo API",
-                    Description = "API de identidade",
+                    Title = "YourSneaker Enterprise Clientes API",
+                    Description = "API de Clientes",
                     Contact = new OpenApiContact() { Name = "Guilherme Nascimento", Email = "guirafaelrn@gmail.com" },
                     License = new OpenApiLicense() { Name = "MIT", Url = new Uri("https://opensource.org/license/MIT") }
                 });

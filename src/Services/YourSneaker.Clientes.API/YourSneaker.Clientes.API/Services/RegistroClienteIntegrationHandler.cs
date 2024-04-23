@@ -18,12 +18,26 @@ namespace YourSneaker.Clientes.API.Services
             _bus = bus;
         }
 
+        private void ResponderSet()
+        {
+            _bus.RespondAsync<UsuarioRegistradoIntegrationEvent, ResponseMessage>(async request =>
+                await RegistrarCliente(request));
+
+            _bus.AdvancedBus.Connected += OnConnect;
+
+        }
+
         protected override Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            _bus.RespondAsync<UsuarioRegistradoIntegrationEvent, ResponseMessage>(async request => await RegistrarCliente(request));
-
+            ResponderSet();
             return Task.CompletedTask;
         }
+
+        private void OnConnect(object x, EventArgs y)
+        {
+            ResponderSet();
+        }
+
         private async Task<ResponseMessage> RegistrarCliente(UsuarioRegistradoIntegrationEvent message)
         {
             var clienteCommand = new RegistrarClienteCommand(message.Id, message.Nome, message.Email, message.Cpf);
