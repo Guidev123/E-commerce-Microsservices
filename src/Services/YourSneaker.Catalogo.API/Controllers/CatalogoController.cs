@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 using YourSneaker.Catalogo.API.Models;
 using YourSneaker.WebAPI.Core.Controllers;
 using YourSneaker.WebAPI.Core.Identidade;
