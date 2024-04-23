@@ -112,6 +112,7 @@ body {
 
 .card .card-title {
     color: #c2c4d1;
+    text-decoration: none;
 }
 
 .app-content .page-description h1 {
