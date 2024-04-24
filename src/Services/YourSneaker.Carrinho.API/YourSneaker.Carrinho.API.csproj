@@ -10,8 +10,28 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="8.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.4" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.6" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Model\" />
+    <Folder Include="Data\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Building Blocks\YourSneaker.Core\YourSneaker.Core.csproj" />
+    <ProjectReference Include="..\..\Building Blocks\YourSneaker.MessageBus\YourSneaker.MessageBus.csproj" />
+    <ProjectReference Include="..\..\Building Blocks\YourSneaker.WebAPI.Core\YourSneaker.WebAPI.Core.csproj" />
+    <ProjectReference Include="..\YourSneaker.Clientes.API\YourSneaker.Clientes.API\YourSneaker.Clientes.API.csproj" />
   </ItemGroup>
 
 </Project>

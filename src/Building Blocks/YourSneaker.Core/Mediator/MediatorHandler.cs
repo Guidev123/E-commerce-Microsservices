@@ -6,7 +6,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using YourSneaker.Core.Messages;
-using FluentValidation.Results;
 
 namespace YourSneaker.Core.Mediator
 {
