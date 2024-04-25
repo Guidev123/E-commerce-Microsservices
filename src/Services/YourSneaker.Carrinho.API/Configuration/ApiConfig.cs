@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using YourSneaker.Carrinho.API.Data;
 using YourSneaker.WebAPI.Core.Identidade;
 
 namespace YourSneaker.Carrinho.API.Configuration
@@ -7,6 +8,10 @@ namespace YourSneaker.Carrinho.API.Configuration
     {
         public static void AddApiConfig(this IServiceCollection services, IConfiguration configuration)
         {
+            services.AddDbContext<CarrinhoContext>(options =>
+                options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+
+
             services.AddCors(options =>
             {
                 options.AddPolicy("Total", builder =>
