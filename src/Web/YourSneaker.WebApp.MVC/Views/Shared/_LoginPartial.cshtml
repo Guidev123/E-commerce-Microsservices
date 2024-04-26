@@ -1,5 +1,7 @@
 ﻿@using YourSneaker.WebApp.MVC.Extensions
-@inject IUser AppUser
+@using YourSneaker.WebAPI.Core.User
+@inject IAspNetUser AppUser
+
 @if (AppUser.EstaAutenticado())
 {
     <div class="dropdown d-inline-block">

@@ -1,13 +1,14 @@
 ﻿using System.Net.Http.Headers;
+using YourSneaker.WebAPI.Core.User;
 using YourSneaker.WebApp.MVC.Extensions;
 
 namespace YourSneaker.WebApp.MVC.Service.handlers
 {
     public class HttpClientAuthDelegatingHandler : DelegatingHandler
     {
-        private readonly IUser _user;
+        private readonly IAspNetUser _user;
 
-        public HttpClientAuthDelegatingHandler(IUser user)
+        public HttpClientAuthDelegatingHandler(IAspNetUser user)
         {
             _user = user;
         }
