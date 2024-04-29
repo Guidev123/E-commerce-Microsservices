@@ -1,0 +1,6 @@
+@YourSneaker.BFF.Compras_HostAddress = http://localhost:5011
+
+GET {{YourSneaker.BFF.Compras_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
