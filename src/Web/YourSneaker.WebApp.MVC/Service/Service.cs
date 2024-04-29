@@ -10,22 +10,23 @@ namespace YourSneaker.WebApp.MVC.Service
     {
         protected StringContent ObterConteudo(object dado)
         {
-           return new StringContent(
+            return new StringContent(
                 JsonSerializer.Serialize(dado),
                 Encoding.UTF8,
                 "application/json");
         }
-        protected async Task<T> DeserelizarObjetoResponse<T>(HttpResponseMessage responseMessage)
+
+        protected async Task<T> DeserializarObjetoResponse<T>(HttpResponseMessage responseMessage)
         {
             var options = new JsonSerializerOptions
             {
-                PropertyNameCaseInsensitive = true,
+                PropertyNameCaseInsensitive = true
             };
-
-            return JsonSerializer.Deserialize<T>(await responseMessage.Content.ReadAsStringAsync(), options);
+            var ss = await responseMessage.Content.ReadAsStringAsync();
+            return JsonSerializer.Deserialize<T>(ss, options);
         }
 
-        protected bool TratarErrosResponse(HttpResponseMessage response) 
+        protected bool TratarErrosResponse(HttpResponseMessage response)
         {
             switch ((int)response.StatusCode)
             {
@@ -34,12 +35,18 @@ namespace YourSneaker.WebApp.MVC.Service
                 case 404:
                 case 500:
                     throw new CustomHttpExceptionRequest(response.StatusCode);
+
                 case 400:
                     return false;
             }
 
             response.EnsureSuccessStatusCode();
             return true;
+        }
+
+        protected ResponseResult RetornaOk()
+        {
+            return new ResponseResult();
         }
     }
 }

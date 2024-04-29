@@ -11,31 +11,31 @@ namespace YourSneaker.Clientes.API.Services
         private readonly IMessageBus _bus;
         private readonly IServiceProvider _serviceProvider;
 
-        public RegistroClienteIntegrationHandler(IServiceProvider serviceProvider,
-            IMessageBus bus)
+        public RegistroClienteIntegrationHandler(
+                            IServiceProvider serviceProvider,
+                            IMessageBus bus)
         {
             _serviceProvider = serviceProvider;
             _bus = bus;
         }
 
-        private void ResponderSet()
+        private void SetResponder()
         {
             _bus.RespondAsync<UsuarioRegistradoIntegrationEvent, ResponseMessage>(async request =>
                 await RegistrarCliente(request));
 
             _bus.AdvancedBus.Connected += OnConnect;
-
         }
 
         protected override Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            ResponderSet();
+            SetResponder();
             return Task.CompletedTask;
         }
 
-        private void OnConnect(object x, EventArgs y)
+        private void OnConnect(object s, EventArgs e)
         {
-            ResponderSet();
+            SetResponder();
         }
 
         private async Task<ResponseMessage> RegistrarCliente(UsuarioRegistradoIntegrationEvent message)

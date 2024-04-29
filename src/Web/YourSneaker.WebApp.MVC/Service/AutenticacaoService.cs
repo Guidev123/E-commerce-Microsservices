@@ -30,11 +30,11 @@ namespace YourSneaker.WebApp.MVC.Service
 
                 return new UsuarioRespostaLogin
                 {
-                    ResponseResult = await DeserelizarObjetoResponse<ResponseResult>(response)
+                    ResponseResult = await DeserializarObjetoResponse<ResponseResult>(response)
 
                 };
             }
-            return await DeserelizarObjetoResponse<UsuarioRespostaLogin>(response);
+            return await DeserializarObjetoResponse<UsuarioRespostaLogin>(response);
         }
 
         public async Task<UsuarioRespostaLogin> Registro(UsuarioRegistro usuarioRegistro)
@@ -47,11 +47,11 @@ namespace YourSneaker.WebApp.MVC.Service
             {
                 return new UsuarioRespostaLogin
                 {
-                    ResponseResult = await DeserelizarObjetoResponse<ResponseResult>(response)
+                    ResponseResult = await DeserializarObjetoResponse<ResponseResult>(response)
                 };
             }
 
-            return await DeserelizarObjetoResponse<UsuarioRespostaLogin>(response);
+            return await DeserializarObjetoResponse<UsuarioRespostaLogin>(response);
         }
     }
 }

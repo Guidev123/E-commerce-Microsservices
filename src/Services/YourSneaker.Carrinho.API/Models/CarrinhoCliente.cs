@@ -10,7 +10,7 @@ namespace YourSneaker.Carrinho.API.Models
         public decimal ValorTotal { get; set; }
         public List<CarrinhoItem> Itens { get; set; } = new List<CarrinhoItem>();
 
-        public ValidationResult ValidationResult { get; set; } 
+        public ValidationResult? ValidationResult { get; set; } 
 
         public CarrinhoCliente(Guid clienteId)
         {
@@ -23,7 +23,7 @@ namespace YourSneaker.Carrinho.API.Models
 
         internal void CalculoDoValorCarrinho()
         {
-            ValorTotal = Itens.Sum(p => p.CalculoDoValor());
+            ValorTotal = Itens.Sum(p => p.CalcularValor());
         }
 
         internal bool CarrinhoItemExiste(CarrinhoItem item)

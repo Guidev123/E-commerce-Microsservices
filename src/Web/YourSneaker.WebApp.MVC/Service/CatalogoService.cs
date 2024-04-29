@@ -22,7 +22,7 @@ namespace YourSneaker.WebApp.MVC.Service
 
             TratarErrosResponse(response);
 
-            return await DeserelizarObjetoResponse<ProdutoViewModel>(response);
+            return await DeserializarObjetoResponse<ProdutoViewModel>(response);
         }
 
         public async Task<IEnumerable<ProdutoViewModel>> ObterTodos()
@@ -31,7 +31,7 @@ namespace YourSneaker.WebApp.MVC.Service
 
             TratarErrosResponse(response);
 
-            return await DeserelizarObjetoResponse<IEnumerable<ProdutoViewModel>>(response);
+            return await DeserializarObjetoResponse<IEnumerable<ProdutoViewModel>>(response);
         }
     }
 }

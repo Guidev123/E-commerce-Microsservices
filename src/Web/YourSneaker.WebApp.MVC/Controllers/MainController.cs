@@ -7,7 +7,7 @@ namespace YourSneaker.WebApp.MVC.Controllers
     {
         protected bool ResponsePossuiErros(ResponseResult resposta)
         {
-            if (resposta != null && resposta.Errors.Messages.Count() > 0)
+            if (resposta != null && resposta.Errors != null && resposta.Errors.Messages != null && resposta.Errors.Messages.Count() > 0)
             {
                 foreach (var mensagem in resposta.Errors.Messages)
                 {
@@ -18,6 +18,16 @@ namespace YourSneaker.WebApp.MVC.Controllers
             }
 
             return false;
+        }
+
+        protected void AdicionarErroValidacao(string mensagem)
+        {
+            ModelState.AddModelError(string.Empty, mensagem);
+        }
+
+        protected bool OperacaoValida()
+        {
+            return ModelState.ErrorCount == 0;
         }
     }
 }

@@ -72,6 +72,7 @@ namespace YourSneaker.MessageBus
             TryConnect();
             var disposable = _bus.Rpc.RespondAsync(responder);
             return disposable.GetAwaiter().GetResult();
+
         }
 
         private void TryConnect()

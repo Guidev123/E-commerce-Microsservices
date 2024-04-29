@@ -16,7 +16,17 @@ namespace YourSneaker.WebAPI.Core.User
 
         public Guid ObterUserId()
         {
-            return EstaAutenticado() ? Guid.Parse(_accessor.HttpContext.User.GetUserId()) : Guid.Empty;
+            //return EstaAutenticado() ? Guid.Parse(_accessor.HttpContext.User.GetUserId()) : Guid.Empty;
+            if (EstaAutenticado())
+            {
+                var userIdClaim = _accessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier);
+                if (userIdClaim != null && Guid.TryParse(userIdClaim.Value, out Guid userId))
+                {
+                    return userId;
+                }
+            }
+
+            return Guid.Empty;
         }
 
         public string ObterUserEmail()

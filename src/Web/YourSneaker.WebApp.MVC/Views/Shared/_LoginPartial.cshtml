@@ -4,36 +4,35 @@
 
 @if (AppUser.EstaAutenticado())
 {
-    <div class="dropdown d-inline-block">
-        <a href="#" class="icontext dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-            <img class="icon icon-sm rounded-circle" src="https://s.gravatar.com/avatar/@this.HashEmailGravatar(AppUser.ObterUserEmail())?d=mm&s=45">
-        </a> <!-- iconbox // -->
-@*         <div class="" x-placement="bottom-end" style="position: absolute; will-change: transform; top: 12px; left: 91px; transform: translate3d(150px, 32px, 0px);">
-            <a href="#">Meu Perfil</a>
-            <a  href="#">Meus Pedidos</a>
-            <div class="dropdown-divider"></div>
-            <a asp-controller="Identidade" asp-action="Logout">Sair</a>
-        </div> *@
-        <div class="dropdown">
-            <div class="dropdown-content">
-                <a href="#">Meu Perfil</a>
-                <a href="#">Meus Pedidos</a>
-                <div></div>
-                <a asp-controller="Identidade" asp-action="Logout">Sair</a>
-            </div>
+    <div style="display: flex;">
+        <div style="flex: 1; margin-right: 30px;">
+            <vc:carrinho /> 
         </div>
 
-    </div>
-}
-else
-{
-        <div class="dropdown">
-            <div class="dropdown-content">
-                <small class="title text-muted">Bem vindo!</small>
-                <div>
-                    <a asp-controller="Identidade" asp-action="Registro" >Crie sua conta</a> <span> | </span>
-                    <a asp-controller="Identidade" asp-action="Login"> Login</a>
+        <div style="flex: 1; margin-right: 30px;">
+            <div class="logo">
+                <div class="sidebar-user-switcher user-activity-online">
+                    <a href="#">
+                        <img class="icon icon-sm rounded-circle" src="https://s.gravatar.com/avatar/@this.HashEmailGravatar(AppUser.ObterUserEmail())?d=mm&s=45">
+                        <a class="nav-link active" asp-controller="Identidade" asp-action="Logout">Sair</a>
+                    </a>
                 </div>
             </div>
         </div>
+    </div>
+
+
+
+}
+else
+{
+    <div class="dropdown">
+        <div class="dropdown-content">
+            <small class="title text-muted">Bem vindo!</small>
+            <div>
+                <a style="text-decoration: none;" asp-controller="Identidade" asp-action="Registro">Crie sua conta</a> <span> | </span>
+                <a style="text-decoration: none;" asp-controller="Identidade" asp-action="Login"> Login</a>
+            </div>
+        </div>
+    </div>
 }
