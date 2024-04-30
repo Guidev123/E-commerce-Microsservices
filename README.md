@@ -53,7 +53,7 @@
 <h1></h1>
 <h1>Funcionamento da aplicação até agora</h1>
 <br/>
-<strong>(Não está finalizada, irei atualizando o video de acordo com o desenvolvimento. Estão pendendtes as API's de Pedidos, Pagamentos e a API Gateway de compras.)</strong>
+<strong>(Não está finalizada, irei atualizando o video de acordo com o desenvolvimento. Estão pendentes as API's de Pedidos, Pagamentos e a API Gateway de compras.)</strong>
 <br/>
 <br/>
 <br/>
