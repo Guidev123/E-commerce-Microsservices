@@ -3,11 +3,13 @@
 <h2>Este projeto foi desenvolvido utilizando as seguintes tecnologias:</h2>
 
 <li>ASP.NET🛠️</li>
+<li>C#🛠️</li>
 <li>.NET🛠️</li>
 <li>Entity Framework🛠️</li>
 <li>SQL Server🛠️</li>
 <li>RabbitMQ🛠️</li>
 <li>JasonWebToken (JWT) para criptografia dos dados.🛠️</li>
+<li>Javascript🛠️</li>
 <br/>
 <strong>Além disso, foram aplicados os seguintes princípios de desenvolvimento:</strong>
 
