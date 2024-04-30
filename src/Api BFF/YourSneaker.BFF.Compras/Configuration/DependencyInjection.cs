@@ -1,4 +1,9 @@
-﻿using YourSneaker.WebAPI.Core.User;
+﻿using YourSneaker.BFF.Compras.Extensions;
+using YourSneaker.BFF.Compras.Services;
+using YourSneaker.WebAPI.Core.Extensions;
+using YourSneaker.WebAPI.Core.User;
+using Polly;
+
 
 namespace YourSneaker.BFF.Compras.Configuration
 {
@@ -8,6 +13,21 @@ namespace YourSneaker.BFF.Compras.Configuration
         {
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped<IAspNetUser, AspNetUser>();
+
+             
+            services.AddTransient<HttpClientAuthDelegatingHandler>();
+
+            services.AddHttpClient<ICatalogoService, CatalogoService>()
+                .AddHttpMessageHandler<HttpClientAuthDelegatingHandler>()
+                .AddPolicyHandler(PollyExtensions.EsperarTentar())
+                .AddTransientHttpErrorPolicy(
+                    p => p.CircuitBreakerAsync(5, TimeSpan.FromSeconds(30)));
+
+            services.AddHttpClient<ICarrinhoService, CarrinhoService>()
+                .AddHttpMessageHandler<HttpClientAuthDelegatingHandler>()
+                .AddPolicyHandler(PollyExtensions.EsperarTentar())
+                .AddTransientHttpErrorPolicy(
+                    p => p.CircuitBreakerAsync(5, TimeSpan.FromSeconds(30)));
         }
     }
 }

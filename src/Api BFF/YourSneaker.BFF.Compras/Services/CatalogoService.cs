@@ -1,10 +1,12 @@
 ﻿using Microsoft.Extensions.Options;
 using YourSneaker.BFF.Compras.Extensions;
+using YourSneaker.BFF.Compras.Models;
 
 namespace YourSneaker.BFF.Compras.Services
 {
     public interface ICatalogoService
     {
+        Task<ItemProdutoDTO> ObterProdutoPorId(Guid id);
     }
 
     public class CatalogoService : Service, ICatalogoService
@@ -15,6 +17,15 @@ namespace YourSneaker.BFF.Compras.Services
         {
             _httpClient = httpClient;
             _httpClient.BaseAddress = new Uri(settings.Value.CatalogoUrl);
+        }
+
+        public async Task<ItemProdutoDTO> ObterProdutoPorId(Guid id)
+        {
+            var response = await _httpClient.GetAsync($"/catalogo/produtos/{id}");
+
+            TratarErrosResponse(response);
+
+            return await DeserializarObjetoResponse<ItemProdutoDTO>(response);
         }
     }
 }

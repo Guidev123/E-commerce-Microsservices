@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Options;
+using YourSneaker.Core.Comunication;
 using YourSneaker.WebApp.MVC.Extensions;
 using YourSneaker.WebApp.MVC.Models;
 

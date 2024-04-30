@@ -3,11 +3,11 @@ using YourSneaker.WebAPI.Core.User;
 
 namespace YourSneaker.BFF.Compras.Extensions
 {
-    public class HttpClientAuthorizationDelegatingHandler : DelegatingHandler
+    public class HttpClientAuthDelegatingHandler : DelegatingHandler
     {
         private readonly IAspNetUser _user;
 
-        public HttpClientAuthorizationDelegatingHandler(IAspNetUser user)
+        public HttpClientAuthDelegatingHandler(IAspNetUser user)
         {
             _user = user;
         }

@@ -19,6 +19,18 @@
 
     <!-- Theme Styles -->
     @await Html.PartialAsync("_StylesTheme")
+
+    <style>
+        .logoS {
+            max-width: 80px; 
+            max-height: 80px; 
+            border-radius: 50%;
+            display: block;
+            margin: auto;
+            margin-left: 10px; 
+        }
+
+    </style>
     
 </head>
 <body>
@@ -26,9 +38,12 @@
         <div class="app-auth-background">
         </div>
         <div class="app-auth-container">
-            <div class="logo">
-                 <a asp-action="Index" asp-controller="Catalogo" class="brand-wrap"></a>
+            <div class="col-lg-3 col-4">
+                <a asp-action="Index" asp-controller="Catalogo" class="brand-wrap">
+                    <img alt="Your Sneaker" class="logoS rounded-circle" src="~/images/logo.png">
+                </a>
             </div>
+
             <p class="auth-description">Seja bem vindo! <br />Por favor, informe seus dados de acesso e boa sorte!</p>
 
             <form asp-route-returnurl="@ViewData["ReturnUrl"]" asp-action="Login">

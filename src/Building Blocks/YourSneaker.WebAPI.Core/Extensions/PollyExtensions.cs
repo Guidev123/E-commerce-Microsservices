@@ -1,8 +1,13 @@
 ﻿using Polly;
 using Polly.Extensions.Http;
 using Polly.Retry;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace YourSneaker.WebApp.MVC.Configuration
+namespace YourSneaker.WebAPI.Core.Extensions
 {
     public static class PollyExtensions
     {
@@ -18,7 +23,7 @@ namespace YourSneaker.WebApp.MVC.Configuration
                 }, (outcome, timespan, retryCount, context) =>
                 {
                     Console.ForegroundColor = ConsoleColor.Blue;
-                    Console.WriteLine($"Tentando pela {retryCount} vez!");
+                    Console.WriteLine($"Tentando pela {retryCount} tentativa");
                     Console.ForegroundColor = ConsoleColor.White;
                 });
 
@@ -26,4 +31,3 @@ namespace YourSneaker.WebApp.MVC.Configuration
         }
     }
 }
-

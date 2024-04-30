@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Options;
 using System.Text;
 using System.Text.Json;
+using YourSneaker.Core.Comunication;
 using YourSneaker.WebApp.MVC.Extensions;
 using YourSneaker.WebApp.MVC.Models;
 

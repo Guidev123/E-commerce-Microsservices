@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc;
 using FluentValidation.Results;
+using YourSneaker.Core.Comunication;
 
 namespace YourSneaker.WebAPI.Core.Controllers
 {
@@ -40,6 +41,23 @@ namespace YourSneaker.WebAPI.Core.Controllers
             return CustomResponse();
         }
 
+        protected ActionResult CustomResponse(ResponseResult response)
+        {
+            ResponsePossuiErros(response);
+            return CustomResponse();
+        }
+
+        protected bool ResponsePossuiErros(ResponseResult response)
+        {
+            if (response == null || !response.Errors.Messages.Any()) return false;
+
+            foreach (var message in response.Errors.Messages)
+            {
+                AddProcessError(message);
+            }
+
+            return true;
+        }
         protected bool ValidOperation()
         {
             return !Errors.Any();

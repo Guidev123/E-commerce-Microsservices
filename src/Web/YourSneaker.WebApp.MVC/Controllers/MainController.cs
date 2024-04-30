@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using YourSneaker.Core.Comunication;
 using YourSneaker.WebApp.MVC.Models;
 
 namespace YourSneaker.WebApp.MVC.Controllers

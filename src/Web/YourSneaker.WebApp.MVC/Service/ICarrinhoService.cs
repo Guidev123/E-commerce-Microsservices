@@ -1,4 +1,5 @@
-﻿using YourSneaker.WebApp.MVC.Models;
+﻿using YourSneaker.Core.Comunication;
+using YourSneaker.WebApp.MVC.Models;
 
 namespace YourSneaker.WebApp.MVC.Service
 {

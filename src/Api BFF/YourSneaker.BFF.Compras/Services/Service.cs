@@ -1,6 +1,7 @@
 ﻿using System.Net;
 using System.Text.Json;
 using System.Text;
+using YourSneaker.Core.Comunication;
 
 namespace YourSneaker.BFF.Compras.Services
 {
@@ -30,6 +31,11 @@ namespace YourSneaker.BFF.Compras.Services
 
             response.EnsureSuccessStatusCode();
             return true;
+        }
+
+        protected ResponseResult RetornaOk()
+        {
+            return new ResponseResult();
         }
     }
 }

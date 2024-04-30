@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using YourSneaker.Core.Comunication;
 using YourSneaker.WebApp.MVC.Extensions;
 
 namespace YourSneaker.WebApp.MVC.Models
