@@ -8,6 +8,7 @@
 <li>Entity Framework🛠️</li>
 <li>SQL Server🛠️</li>
 <li>RabbitMQ🛠️</li>
+<li>Docker🛠️</li>
 <li>JasonWebToken (JWT) para criptografia dos dados.🛠️</li>
 <li>Javascript🛠️</li>
 <br/>
