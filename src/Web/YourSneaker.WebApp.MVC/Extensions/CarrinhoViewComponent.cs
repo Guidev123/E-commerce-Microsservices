@@ -7,16 +7,16 @@ namespace YourSneaker.WebApp.MVC.Extensions
 {
     public class CarrinhoViewComponent : ViewComponent
     {
-        private readonly ICarrinhoService _carrinhoService;
+        private readonly IComprasBFFService _carrinhoService;
 
-        public CarrinhoViewComponent(ICarrinhoService carrinhoService)
+        public CarrinhoViewComponent(IComprasBFFService carrinhoService)
         {
             _carrinhoService = carrinhoService;
         }
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            return View(await _carrinhoService.ObterCarrinho() ?? new CarrinhoViewModel());
+            return View(await _carrinhoService.ObterQuantidadeCarrinho());
         }
     }
 }

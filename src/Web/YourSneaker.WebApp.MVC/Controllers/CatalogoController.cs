@@ -23,7 +23,7 @@ namespace YourSneaker.WebApp.MVC.Controllers
         }
         [HttpGet]
         [Route("produtos-detalhe/{id}")]
-        public async Task<IActionResult> ProdutoDetalhe(Guid id) 
+        public async Task<IActionResult> ProdutoDetalhe(Guid id)
         {
             var produtos = await _catalogoService.ObterPorId(id);
             return View(produtos);

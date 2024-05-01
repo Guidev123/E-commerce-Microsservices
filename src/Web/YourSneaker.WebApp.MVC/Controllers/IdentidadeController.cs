@@ -20,19 +20,19 @@ namespace YourSneaker.WebApp.MVC.Controllers
 
         [HttpGet]
         [Route("registrar-nova-conta")]
-        public IActionResult Registro() 
+        public IActionResult Registro()
         {
             return View();
         }
         [HttpPost]
         [Route("registrar-nova-conta")]
-        public async Task<IActionResult> Registro(UsuarioRegistro usuarioRegistro) 
+        public async Task<IActionResult> Registro(UsuarioRegistro usuarioRegistro)
         {
-            if(!ModelState.IsValid) return View(usuarioRegistro);
+            if (!ModelState.IsValid) return View(usuarioRegistro);
 
             var resposta = await _autenticacaoService.Registro(usuarioRegistro);
 
-            if (ResponsePossuiErros(resposta.ResponseResult)) return View(usuarioRegistro); 
+            if (ResponsePossuiErros(resposta.ResponseResult)) return View(usuarioRegistro);
 
             await RealizarLogin(resposta);
 
@@ -60,7 +60,7 @@ namespace YourSneaker.WebApp.MVC.Controllers
 
             await RealizarLogin(resposta);
 
-            if (string.IsNullOrEmpty(returnUrl)) return RedirectToAction("Index", "Catalogo");   
+            if (string.IsNullOrEmpty(returnUrl)) return RedirectToAction("Index", "Catalogo");
 
             return LocalRedirect(returnUrl);
         }
