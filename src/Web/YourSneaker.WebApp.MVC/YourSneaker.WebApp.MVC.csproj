@@ -10,6 +10,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\assets\plugins\lightbox\**" />
+    <Content Remove="wwwroot\assets\plugins\lightbox\**" />
+    <EmbeddedResource Remove="wwwroot\assets\plugins\lightbox\**" />
+    <None Remove="wwwroot\assets\plugins\lightbox\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="Extensions\EverythingToStringJsonConverter.cs" />
   </ItemGroup>
 
@@ -35,27 +42,6 @@
     <None Include="wwwroot\assets\js\custom.js" />
     <None Include="wwwroot\assets\js\main.js" />
     <None Include="wwwroot\assets\js\main.min.js" />
-    <None Include="wwwroot\assets\js\pages\blockui.js" />
-    <None Include="wwwroot\assets\js\pages\calendar.js" />
-    <None Include="wwwroot\assets\js\pages\charts-apex.js" />
-    <None Include="wwwroot\assets\js\pages\charts-chartjs.js" />
-    <None Include="wwwroot\assets\js\pages\countdown.js" />
-    <None Include="wwwroot\assets\js\pages\dashboard.js" />
-    <None Include="wwwroot\assets\js\pages\datatables.js" />
-    <None Include="wwwroot\assets\js\pages\datepickers.js" />
-    <None Include="wwwroot\assets\js\pages\input-mask.js" />
-    <None Include="wwwroot\assets\js\pages\lightbox.js" />
-    <None Include="wwwroot\assets\js\pages\mailbox.js" />
-    <None Include="wwwroot\assets\js\pages\select2.js" />
-    <None Include="wwwroot\assets\js\pages\session-timeout.js" />
-    <None Include="wwwroot\assets\js\pages\settings.js" />
-    <None Include="wwwroot\assets\js\pages\text-editor.js" />
-    <None Include="wwwroot\assets\js\pages\widgets.js" />
-    <None Include="wwwroot\assets\plugins\apexcharts\apexcharts.amd.js" />
-    <None Include="wwwroot\assets\plugins\apexcharts\apexcharts.common.js" />
-    <None Include="wwwroot\assets\plugins\apexcharts\apexcharts.esm.js" />
-    <None Include="wwwroot\assets\plugins\apexcharts\apexcharts.js" />
-    <None Include="wwwroot\assets\plugins\apexcharts\apexcharts.min.js" />
     <None Include="wwwroot\assets\plugins\blockUI\jquery.blockUI.min.js" />
     <None Include="wwwroot\assets\plugins\bootstrap\css\bootstrap-grid.css.map" />
     <None Include="wwwroot\assets\plugins\bootstrap\css\bootstrap-grid.min.css.map" />
@@ -111,28 +97,6 @@
     <None Include="wwwroot\assets\plugins\dropzone\min\dropzone-amd-module.min.js" />
     <None Include="wwwroot\assets\plugins\dropzone\min\dropzone.min.js" />
     <None Include="wwwroot\assets\plugins\flatpickr\flatpickr.js" />
-    <None Include="wwwroot\assets\plugins\highlight\highlight.pack.js" />
-    <None Include="wwwroot\assets\plugins\idle-timer\idle-timer.0.9.3.js" />
-    <None Include="wwwroot\assets\plugins\idle-timer\idle-timer.0.9.3.min.js" />
-    <None Include="wwwroot\assets\plugins\idle-timer\idle-timer.1.0.0.js" />
-    <None Include="wwwroot\assets\plugins\idle-timer\idle-timer.1.0.0.min.js" />
-    <None Include="wwwroot\assets\plugins\idle-timer\idle-timer.1.0.1.js" />
-    <None Include="wwwroot\assets\plugins\idle-timer\idle-timer.1.0.1.min.js" />
-    <None Include="wwwroot\assets\plugins\idle-timer\idle-timer.1.1.0.js" />
-    <None Include="wwwroot\assets\plugins\idle-timer\idle-timer.1.1.0.min.js" />
-    <None Include="wwwroot\assets\plugins\idle-timer\idle-timer.1.1.1.js" />
-    <None Include="wwwroot\assets\plugins\idle-timer\idle-timer.1.1.1.min.js" />
-    <None Include="wwwroot\assets\plugins\idle-timer\idle-timer.js" />
-    <None Include="wwwroot\assets\plugins\idle-timer\idle-timer.min.js" />
-    <None Include="wwwroot\assets\plugins\input-mask\bindings\inputmask.binding.js" />
-    <None Include="wwwroot\assets\plugins\input-mask\inputmask.js" />
-    <None Include="wwwroot\assets\plugins\input-mask\inputmask.min.js" />
-    <None Include="wwwroot\assets\plugins\input-mask\jquery.inputmask.js" />
-    <None Include="wwwroot\assets\plugins\input-mask\jquery.inputmask.min.js" />
-    <None Include="wwwroot\assets\plugins\jquery\jquery-3.5.1.min.js" />
-    <None Include="wwwroot\assets\plugins\lightbox\fslightbox.js" />
-    <None Include="wwwroot\assets\plugins\lightbox\LICENSE" />
-    <None Include="wwwroot\assets\plugins\lightbox\README.md" />
     <None Include="wwwroot\assets\plugins\pace\pace.min.js" />
     <None Include="wwwroot\assets\plugins\perfectscroll\perfect-scrollbar.common.js" />
     <None Include="wwwroot\assets\plugins\perfectscroll\perfect-scrollbar.esm.js" />

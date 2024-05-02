@@ -55,7 +55,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiBFF", "ApiBFF", "{0EAD89
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Compras", "Compras", "{AD3A8D29-F072-4202-B78A-6E616D47C5B9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YourSneaker.BFF.Compras", "src\Api BFF\YourSneaker.BFF.Compras\YourSneaker.BFF.Compras.csproj", "{E7ED377E-46A3-46D1-B804-505B555220CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YourSneaker.BFF.Compras", "src\Api BFF\YourSneaker.BFF.Compras\YourSneaker.BFF.Compras.csproj", "{E7ED377E-46A3-46D1-B804-505B555220CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YourSneaker.Pedido.Domain", "src\Services\YourSneaker.Pedido.Domain\YourSneaker.Pedido.Domain.csproj", "{2D388BDF-33E5-48E3-B972-EAF1B1CB297A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YourSneaker.Pedido.Infra", "src\Services\YourSneaker.Pedido.Infra\YourSneaker.Pedido.Infra.csproj", "{CAFBE11A-407F-43D4-AF54-A0ADEE7EF59D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -107,6 +111,14 @@ Global
 		{E7ED377E-46A3-46D1-B804-505B555220CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E7ED377E-46A3-46D1-B804-505B555220CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E7ED377E-46A3-46D1-B804-505B555220CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D388BDF-33E5-48E3-B972-EAF1B1CB297A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D388BDF-33E5-48E3-B972-EAF1B1CB297A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D388BDF-33E5-48E3-B972-EAF1B1CB297A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D388BDF-33E5-48E3-B972-EAF1B1CB297A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAFBE11A-407F-43D4-AF54-A0ADEE7EF59D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAFBE11A-407F-43D4-AF54-A0ADEE7EF59D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAFBE11A-407F-43D4-AF54-A0ADEE7EF59D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAFBE11A-407F-43D4-AF54-A0ADEE7EF59D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -138,6 +150,8 @@ Global
 		{0EAD8986-D711-47D5-BD61-79FC590158C5} = {0FD83B63-7F56-4D2A-AED6-E4F230FA1BB7}
 		{AD3A8D29-F072-4202-B78A-6E616D47C5B9} = {0EAD8986-D711-47D5-BD61-79FC590158C5}
 		{E7ED377E-46A3-46D1-B804-505B555220CE} = {AD3A8D29-F072-4202-B78A-6E616D47C5B9}
+		{2D388BDF-33E5-48E3-B972-EAF1B1CB297A} = {C0FD6319-2C39-4FAC-9AEC-E06D8D8D40D6}
+		{CAFBE11A-407F-43D4-AF54-A0ADEE7EF59D} = {C0FD6319-2C39-4FAC-9AEC-E06D8D8D40D6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {99F1D630-8420-47C2-9578-4BBA0E2DF4E7}
