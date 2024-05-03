@@ -1,4 +1,5 @@
 //========================================== Environment Configure ===============================================/
+using MediatR;
 using YourSneaker.Pedido.API.Configuration;
 using YourSneaker.Pedido.API.Controllers;
 
@@ -13,6 +14,9 @@ builder.Configuration
 
 //API CONFIG
 builder.Services.AddApiConfig(builder.Configuration);
+builder.Services.AddMediatR(typeof(Program));
+builder.Services.RegisterServices();
+
 
 //SWAGGER CONFIG
 builder.Services.AddSwaggerConfig();

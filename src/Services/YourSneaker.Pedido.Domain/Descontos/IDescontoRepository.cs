@@ -9,5 +9,6 @@ namespace YourSneaker.Pedido.Domain.Descontos
 {
     public interface IDescontoRepository : IRepository<Desconto>
     {
+        Task<Desconto> ObterDescontoPorCodigo(string codigo);
     }
 }

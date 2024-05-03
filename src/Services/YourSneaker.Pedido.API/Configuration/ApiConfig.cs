@@ -6,7 +6,8 @@ namespace YourSneaker.Pedido.API.Controllers
 {
     public static class ApiConfig
     {
-        public static void AddApiConfig(this IServiceCollection services, IConfiguration configuration)
+        public static void AddApiConfig(this IServiceCollection services,
+            IConfiguration configuration)
         {
             services.AddDbContext<PedidosContext>(options =>
                 options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));

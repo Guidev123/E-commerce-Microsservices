@@ -1,14 +1,10 @@
 ﻿using FluentValidation.Results;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
 using YourSneaker.Core.Data;
+using YourSneaker.Core.DomainObjects;
 using YourSneaker.Core.Mediator;
 using YourSneaker.Core.Messages;
+using YourSneaker.Pedido.Domain.Descontos;
 
 namespace YourSneaker.Pedido.Infra.Data
 {
@@ -21,9 +17,7 @@ namespace YourSneaker.Pedido.Infra.Data
         {
             _mediatorHandler = mediatorHandler;
         }
-
-
-
+        public DbSet<Desconto> Descontos { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             foreach (var property in modelBuilder.Model.GetEntityTypes().SelectMany(
@@ -42,13 +36,42 @@ namespace YourSneaker.Pedido.Infra.Data
 
             base.OnModelCreating(modelBuilder);
         }
-
         public async Task<bool> Commit()
         {
             var sucesso = await base.SaveChangesAsync() > 0;
-            if (sucesso) await _mediatorHandler.PublicarEvento(this);
+
+            if (sucesso)
+            {
+                await _mediatorHandler.PublicarEventos(this);
+            }
 
             return sucesso;
         }
     }
+
+    public static class MediatorExtension
+    {
+        public static async Task PublicarEventos<T>(this IMediatorHandler mediator, T ctx) where T : DbContext
+        {
+            var domainEntities = ctx.ChangeTracker
+                .Entries<Entity>()
+                .Where(x => x.Entity.Notificacoes != null && x.Entity.Notificacoes.Any());
+
+            var domainEvents = domainEntities
+                .SelectMany(x => x.Entity.Notificacoes)
+                .ToList();
+
+            domainEntities.ToList()
+                .ForEach(entity => entity.Entity.LimparEventos());
+
+            var tasks = domainEvents
+                .Select(async (domainEvent) =>
+                {
+                    await mediator.PublicarEvento(domainEvent);
+                });
+
+            await Task.WhenAll(tasks);
+        }
+    }
 }
+

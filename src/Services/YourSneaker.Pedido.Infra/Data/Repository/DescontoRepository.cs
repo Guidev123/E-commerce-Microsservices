@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,11 +18,18 @@ namespace YourSneaker.Pedido.Infra.Data.Repository
             _context = context;
         }
 
-        public IUnitOfWork UnitOfWork => throw new NotImplementedException();
+        public IUnitOfWork UnitOfWork => _context;
+
+        public async Task<Desconto> ObterDescontoPorCodigo(string codigo)
+        {
+            return await _context.Descontos.FirstOrDefaultAsync(p => p.Codigo == codigo);
+        }
 
         public void Dispose()
         {
             throw new NotImplementedException();
         }
+
+
     }
 }
