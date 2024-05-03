@@ -14,10 +14,23 @@
 <br/>
 <strong>Além disso, foram aplicados os seguintes princípios de desenvolvimento:</strong>
 
-<li>Domain Driven Design📜</li>
-<li>SOLID📜</li>
-<li>OOP (Programação Orientada a Objetos)📜</li>
+<li> Domain Driven Design📜</li>
+<li> SOLID📜</li>
+<li> OOP (Programação Orientada a Objetos)📜</li>
+<li> CQRS📜</li>
+<li> Clean Code📜</li>
+<li> Unit of Work📜</li>
+<li> Api BFF (Gateway)📜</li>
+
+<br/>
+<strong>Outros serviços utilizados:</strong>
+
+<li> EasyNetQ💼</li>
+<li> Polly💼</li>
+<li> MediatR💼</li>
+<li> Swagger UI com suporte para JWT💼</li>
 <h2>Descrição</h2>
+
 <strong>O projeto consiste em um sistema composto por 6 APIs REST e 1 API Gateway:
 </strong>
 <br/>
