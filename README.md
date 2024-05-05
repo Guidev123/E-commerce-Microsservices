@@ -14,10 +14,29 @@
 <br/>
 <strong>Além disso, foram aplicados os seguintes princípios de desenvolvimento:</strong>
 
-<li>Domain Driven Design📜</li>
-<li>SOLID📜</li>
-<li>OOP (Programação Orientada a Objetos)📜</li>
+<li> Domain Driven Design📜</li>
+<li> SOLID📜</li>
+<li> OOP (Programação Orientada a Objetos)📜</li>
+<li> CQRS📜</li>
+<li> Clean Code📜</li>
+<li> Unit of Work📜</li>
+<li> Api BFF (Gateway)📜</li>
+<br/>
+<strong>Arquitetura: </strong>
+<br/>
+
+![Arquitetura](https://github.com/Guidev123/YourSneakerEnterprise/assets/155389912/66b16d2c-697a-4bfd-973a-ba706521f554)
+
+
+<br/>
+<strong>Outros serviços utilizados:</strong>
+
+<li> EasyNetQ💼</li>
+<li> Polly💼</li>
+<li> MediatR💼</li>
+<li> Swagger UI com suporte para JWT💼</li>
 <h2>Descrição</h2>
+
 <strong>O projeto consiste em um sistema composto por 6 APIs REST e 1 API Gateway:
 </strong>
 <br/>
