@@ -39,7 +39,7 @@
                                                             <img src="~/images/produtos/@item.Imagem" alt="@item.Nome" class="img-sm">
                                                         </div>
                                                         <figcaption class="info">
-                                                            <a asp-controller="Catalogo" asp-action="ProdutoDetalhe" asp-route-id="@item.ProdutoId"><h6 style="padding-top: 10px; text-decoration: none;" class="card-title">@item.Nome</h6></a>
+                                                            <a style="text-decoration: none;" asp-controller="Catalogo" asp-action="ProdutoDetalhe" asp-route-id="@item.ProdutoId"><h6 style="padding-top: 10px;" class="card-title">@item.Nome</h6></a>
                                                             <p class="text-muted small">@this.UnidadesPorProduto(item.Quantidade)</p>
                                                         </figcaption>
                                                     </figure>
@@ -105,13 +105,13 @@
                     <aside class="col-md-3">
                         <div class="card mb-3">
                             <div class="card-body">
-                                <form>
+                                <form asp-action="AplicarCupom">
                                     <div class="form-group">
                                         <label>Possui um cupom de desconto?</label>
                                         <div class="form-floating mb-1">
-                                            <input type="text" class="form-control" name="" placeholder=""><br/>
+                                            <input type="text" class="form-control" name="CupomCodigo" id="CupomCodigo" value="@Model.Cupom?.Codigo" placeholder=""><br/>
                                             <span class="input-group-append">
-                                                <button class="btn btn-primary">Aplicar</button>
+                                                <button type="submit" class="btn btn-primary">Aplicar</button>
                                             </span>
                                         </div>
                                     </div>
@@ -120,10 +120,19 @@
                         </div>
                         <div class="card">
                             <div class="card-body">
-                                <dl class="dlist-align">
-                                    <dt>Valor Total:</dt>
-                                    <dd class="text-right">@this.MoneyFormat(Model.ValorTotal)</dd>
-                                </dl>
+                                @{
+                                    if(Model.CupomUtilizado)
+                                    {
+                                        <dl class="dlist-align">
+                                            <dt>Valor Original:</dt>
+                                            <dd class="text-right">@this.MoneyFormat(Model.ValorTotal + Model.Desconto)</dd>
+                                        </dl>
+                                        <dl class="dlist-align" style="color:green">
+                                            <dt>Desconto:</dt>
+                                            <dd class="text-right">@this.MoneyFormat(Model.Desconto)</dd>
+                                        </dl>
+                                    }
+                                }
                                 <dl class="dlist-align">
                                     <dt>Desconto:</dt>
                                     <dd class="text-right">R$ 0,00</dd>

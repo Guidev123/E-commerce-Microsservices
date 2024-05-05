@@ -1,8 +1,11 @@
-//========================================== Environment Configure ===============================================/
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.DependencyInjection;
 using MediatR;
-using YourSneaker.Pedido.API.Configuration;
+using YourSneaker.WebAPI.Core.Identidade;
+using System.Reflection;
 using YourSneaker.Pedido.API.Controllers;
-
+using YourSneaker.Pedido.API.Configuration;
+//========================================== Environment Configure ===============================================/
 var builder = WebApplication.CreateBuilder(args);
 builder.Configuration
     .SetBasePath(builder.Environment.ContentRootPath)
@@ -13,10 +16,10 @@ builder.Configuration
 
 
 //API CONFIG
-builder.Services.AddApiConfig(builder.Configuration);
 builder.Services.AddMediatR(typeof(Program));
+builder.Services.AddApiConfig(builder.Configuration);
+builder.Services.AddJwtConfiguration(builder.Configuration);
 builder.Services.RegisterServices();
-
 
 //SWAGGER CONFIG
 builder.Services.AddSwaggerConfig();

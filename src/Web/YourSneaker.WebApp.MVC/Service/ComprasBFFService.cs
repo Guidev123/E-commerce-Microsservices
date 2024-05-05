@@ -12,6 +12,7 @@ namespace YourSneaker.WebApp.MVC.Service
         Task<ResponseResult> AdicionarItemCarrinho(ItemCarrinhoViewModel produto);
         Task<ResponseResult> AtualizarItemCarrinho(Guid produtoId, ItemCarrinhoViewModel produto);
         Task<ResponseResult> RemoverItemCarrinho(Guid produtoId);
+        Task<ResponseResult> AplicarCupomCarrinho(string cupom);
     }
     public class ComprasBFFService : Service, IComprasBFFService
     {
@@ -62,6 +63,17 @@ namespace YourSneaker.WebApp.MVC.Service
         public async Task<ResponseResult> RemoverItemCarrinho(Guid produtoId)
         {
             var response = await _httpClient.DeleteAsync($"/compras/carrinho/items/{produtoId}");
+
+            if (!TratarErrosResponse(response)) return await DeserializarObjetoResponse<ResponseResult>(response);
+
+            return RetornaOk();
+        }
+
+        public async Task<ResponseResult> AplicarCupomCarrinho(string cupom)
+        {
+            var itemContent = ObterConteudo(cupom);
+
+            var response = await _httpClient.PostAsync("/compras/carrinho/aplicar-cupom/", itemContent);
 
             if (!TratarErrosResponse(response)) return await DeserializarObjetoResponse<ResponseResult>(response);
 

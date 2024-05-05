@@ -30,6 +30,25 @@ namespace YourSneaker.Carrinho.API.Data
                 .HasName("IDX_Cliente");
 
             modelBuilder.Entity<CarrinhoCliente>()
+                .Ignore(c => c.Cupom)
+                .OwnsOne(c => c.Cupom, v =>
+                {
+                    v.Property(cp => cp.Codigo)
+                        .HasColumnName("CupomCodigo")
+                        .HasColumnType("varchar(50)");
+
+                    v.Property(cp => cp.TipoDesconto)
+                        .HasColumnName("TipoDesconto");
+
+                    v.Property(cp => cp.Percentual)
+                        .HasColumnName("Percentual");
+
+                    v.Property(cp => cp.ValorDesconto)
+                        .HasColumnName("ValorDesconto");
+                });
+
+
+            modelBuilder.Entity<CarrinhoCliente>()
                 .HasMany(c => c.Itens)
                 .WithOne(i => i.CarrinhoCliente)
                 .HasForeignKey(c => c.CarrinhoId);

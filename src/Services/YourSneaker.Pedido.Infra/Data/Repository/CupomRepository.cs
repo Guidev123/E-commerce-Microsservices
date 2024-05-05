@@ -9,18 +9,18 @@ using YourSneaker.Pedido.Domain.Descontos;
 
 namespace YourSneaker.Pedido.Infra.Data.Repository
 {
-    public class DescontoRepository : IDescontoRepository
+    public class CupomRepository : ICupomRepository
     {
         private readonly PedidosContext _context;
 
-        public DescontoRepository(PedidosContext context)
+        public CupomRepository(PedidosContext context)
         {
             _context = context;
         }
 
         public IUnitOfWork UnitOfWork => _context;
 
-        public async Task<Desconto> ObterDescontoPorCodigo(string codigo)
+        public async Task<Cumpom> ObterCumpomPorCodigo(string codigo)
         {
             return await _context.Descontos.FirstOrDefaultAsync(p => p.Codigo == codigo);
         }

@@ -6,7 +6,7 @@ namespace YourSneaker.BFF.Compras.Services
 {
     public interface ICatalogoService
     {
-        Task<ItemProdutoDTO> ObterProdutoPorId(Guid id);
+        Task<ItemProdutoDTO> ObterPorId(Guid id);
     }
 
     public class CatalogoService : Service, ICatalogoService
@@ -19,7 +19,7 @@ namespace YourSneaker.BFF.Compras.Services
             _httpClient.BaseAddress = new Uri(settings.Value.CatalogoUrl);
         }
 
-        public async Task<ItemProdutoDTO> ObterProdutoPorId(Guid id)
+        public async Task<ItemProdutoDTO> ObterPorId(Guid id)
         {
             var response = await _httpClient.GetAsync($"/catalogo/produtos/{id}");
 
@@ -28,4 +28,5 @@ namespace YourSneaker.BFF.Compras.Services
             return await DeserializarObjetoResponse<ItemProdutoDTO>(response);
         }
     }
+
 }

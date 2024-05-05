@@ -63,5 +63,15 @@ namespace YourSneaker.WebApp.MVC.Controllers
 
             return RedirectToAction("Index");
         }
+
+        [HttpPost]
+        [Route("carrinho/aplicar-cupom")]
+        public async Task<IActionResult> AplicarCupom(string cupomCodigo)
+        {
+            var resposta = await _comprasBFFService.AplicarCupomCarrinho(cupomCodigo);
+            if (ResponsePossuiErros(resposta)) return View("Index", await _comprasBFFService.ObterCarrinho());
+
+            return RedirectToAction("Index");
+        }
     }
 }

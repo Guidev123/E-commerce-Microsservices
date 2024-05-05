@@ -7,8 +7,8 @@ using YourSneaker.Core.Data;
 
 namespace YourSneaker.Pedido.Domain.Descontos
 {
-    public interface IDescontoRepository : IRepository<Desconto>
+    public interface ICupomRepository : IRepository<Cumpom>
     {
-        Task<Desconto> ObterDescontoPorCodigo(string codigo);
+        Task<Cumpom> ObterCumpomPorCodigo(string codigo);
     }
 }

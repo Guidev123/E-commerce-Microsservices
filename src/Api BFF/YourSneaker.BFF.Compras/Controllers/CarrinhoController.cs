@@ -11,11 +11,15 @@ namespace YourSneaker.BFF.Compras.Controllers
     {
         public readonly ICarrinhoService _carrinhoService;
         private readonly ICatalogoService _catalogoService;
+        private readonly IPedidoService _pedidoService;
 
-        public CarrinhoController(ICarrinhoService carrinhoService, ICatalogoService catalogoService)
+        public CarrinhoController(ICarrinhoService carrinhoService,
+                                  ICatalogoService catalogoService,
+                                  IPedidoService pedidoService)
         {
             _carrinhoService = carrinhoService;
             _catalogoService = catalogoService;
+            _pedidoService = pedidoService;
         }
 
 
@@ -38,9 +42,9 @@ namespace YourSneaker.BFF.Compras.Controllers
         [Route("compras/carrinho/items")]
         public async Task<IActionResult> AdicionarItemCarrinho(ItemCarrinhoDTO itemProduto)
         {
-            var produto = await _catalogoService.ObterProdutoPorId(itemProduto.ProdutoId);
+            var produto = await _catalogoService.ObterPorId(itemProduto.ProdutoId);
 
-            await ValidarItensDoCarrinho(produto, itemProduto.Quantidade);
+            await ValidarItemCarrinho(produto, itemProduto.Quantidade, true);
             if (!ValidOperation()) return CustomResponse();
 
             itemProduto.Nome = produto.Nome;
@@ -56,10 +60,14 @@ namespace YourSneaker.BFF.Compras.Controllers
         [Route("compras/carrinho/items/{produtoId}")]
         public async Task<IActionResult> AtualizarItemCarrinho(Guid produtoId, ItemCarrinhoDTO itemProduto)
         {
-            var produto = await _catalogoService.ObterProdutoPorId(produtoId);
+            var produto = await _catalogoService.ObterPorId(produtoId);
 
-            await ValidarItensDoCarrinho(produto, itemProduto.Quantidade);
-            if(!ValidOperation()) return CustomResponse();
+            await ValidarItemCarrinho(produto, itemProduto.Quantidade);
+            if (!ValidOperation()) return CustomResponse();
+
+            itemProduto.Nome = produto.Nome;
+            itemProduto.Valor = produto.Valor;
+            itemProduto.Imagem = produto.Imagem;
 
             var resposta = await _carrinhoService.AtualizarItemCarrinho(produtoId, itemProduto);
 
@@ -70,32 +78,49 @@ namespace YourSneaker.BFF.Compras.Controllers
         [Route("compras/carrinho/items/{produtoId}")]
         public async Task<IActionResult> RemoverItemCarrinho(Guid produtoId)
         {
-            var produto = await _catalogoService.ObterProdutoPorId(produtoId);
+            var produto = await _catalogoService.ObterPorId(produtoId);
 
-            if (produto == null) { 
-                AddProcessError("Produto não existe");
+            if (produto == null)
+            {
+                AddProcessError("Produto inexistente!");
                 return CustomResponse();
             }
 
             var resposta = await _carrinhoService.RemoverItemCarrinho(produtoId);
-            return CustomResponse(resposta);    
+
+            return CustomResponse(resposta);
         }
 
-        private async Task ValidarItensDoCarrinho(ItemProdutoDTO produto, int quantiade)
+        [HttpPost]
+        [Route("compras/carrinho/aplicar-cumpom")]
+        public async Task<IActionResult> AplicarCumpom([FromBody] string cumpomCodigo)
         {
-            if (produto == null) AddProcessError("O produto não existe");
-            if (quantiade < 1) AddProcessError($"Adicione ao menos uma unidade de {produto.Nome}");
+            var cumpom = await _pedidoService.ObterCumpomPorCodigo(cumpomCodigo);
+            if(cumpom is null)
+            {
+                AddProcessError("Cupom de cumpom inválido ou não encontrado");
+                return CustomResponse();
+            }
+
+            var resposta = await _carrinhoService.AplicarCumpomCarrinho(cumpom);
+            return CustomResponse(resposta);
+        }
+
+        private async Task ValidarItemCarrinho(ItemProdutoDTO produto, int quantidade, bool adicionarProduto = false)
+        {
+            if (produto == null) AddProcessError("Produto inexistente!");
+            if (quantidade < 1) AddProcessError($"Escolha ao menos uma unidade do produto {produto.Nome}");
 
             var carrinho = await _carrinhoService.ObterCarrinho();
             var itemCarrinho = carrinho.Itens.FirstOrDefault(p => p.ProdutoId == produto.Id);
 
-            if(itemCarrinho != null && itemCarrinho.Quantidade + quantiade > produto.QuantidadeEstoque)
+            if (itemCarrinho != null && adicionarProduto && itemCarrinho.Quantidade + quantidade > produto.QuantidadeEstoque)
             {
-                AddProcessError($"{produto.Nome} possui {produto.QuantidadeEstoque} unidades em estoque, você tentou comprar {quantiade} unidades");
+                AddProcessError($"O produto {produto.Nome} possui {produto.QuantidadeEstoque} unidades em estoque, você selecionou {quantidade}");
                 return;
             }
 
-            if (quantiade > produto.QuantidadeEstoque) AddProcessError($"{produto.Nome} possui {produto.QuantidadeEstoque} unidades em estoque, você tentou comprar {quantiade} unidades");
+            if (quantidade > produto.QuantidadeEstoque) AddProcessError($"O produto {produto.Nome} possui {produto.QuantidadeEstoque} unidades em estoque, você selecionou {quantidade}");
         }
     }
 }

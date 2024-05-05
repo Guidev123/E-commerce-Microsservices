@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.DataAnnotations;
 using Microsoft.Extensions.Options;
 using Polly;
+using YourSneaker.WebAPI.Core.Extensions;
 using YourSneaker.WebAPI.Core.User;
 using YourSneaker.WebApp.MVC.Extensions;
 using YourSneaker.WebApp.MVC.Service;

@@ -1,5 +1,8 @@
 ﻿using YourSneaker.Core.Mediator;
+using YourSneaker.Pedido.API.Application.Queries;
+using YourSneaker.Pedido.Domain.Descontos;
 using YourSneaker.Pedido.Infra.Data;
+using YourSneaker.Pedido.Infra.Data.Repository;
 using YourSneaker.WebAPI.Core.User;
 
 namespace YourSneaker.Pedido.API.Configuration
@@ -8,11 +11,16 @@ namespace YourSneaker.Pedido.API.Configuration
     {
         public static void RegisterServices(this IServiceCollection services)
         {
+            // API
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped<IAspNetUser, AspNetUser>();
-
+            // APPLICATION
             services.AddScoped<IMediatorHandler, MediatorHandler>();
-
+            services.AddScoped<ICumpomQueries, DescontoQueries>();
+            // DATA
+            services.AddScoped<ICupomRepository, CupomRepository>();
+            services.AddScoped<PedidosContext>();
+        
         }
     }
 }

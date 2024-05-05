@@ -9,8 +9,11 @@ namespace YourSneaker.Carrinho.API.Models
         public Guid ClienteId { get; set; }
         public decimal ValorTotal { get; set; }
         public List<CarrinhoItem> Itens { get; set; } = new List<CarrinhoItem>();
-
         public ValidationResult? ValidationResult { get; set; } 
+
+        public bool CumpomUtilizado { get; set; }
+        public decimal Desconto { get; set; }
+        public Cumpom Cupom { get; set; }
 
         public CarrinhoCliente(Guid clienteId)
         {
@@ -20,10 +23,44 @@ namespace YourSneaker.Carrinho.API.Models
 
         //EF
         public CarrinhoCliente() { }
-
+        public void AplicarCupom(Cumpom cupom)
+        {
+            Cupom = cupom;
+            CumpomUtilizado = true;
+            CalculoDoValorCarrinho();
+        }
         internal void CalculoDoValorCarrinho()
         {
             ValorTotal = Itens.Sum(p => p.CalcularValor());
+            CalcularValorTotalDesconto();
+        }
+
+        private void CalcularValorTotalDesconto()
+        {
+            if (!CumpomUtilizado) return;
+
+            decimal desconto = 0;
+            var valor = ValorTotal;
+
+            if (Cupom.TipoDesconto == TipoDescontoCumpom.Porcentagem)
+            {
+                if (Cupom.Percentual.HasValue)
+                {
+                    desconto = (valor * Cupom.Percentual.Value) / 100;
+                    valor -= desconto;
+                }
+            }
+            else
+            {
+                if (Cupom.ValorDesconto.HasValue)
+                {
+                    desconto = Cupom.ValorDesconto.Value;
+                    valor -= desconto;
+                }
+            }
+
+            ValorTotal = valor < 0 ? 0 : valor;
+            Desconto = desconto;
         }
 
         internal bool CarrinhoItemExiste(CarrinhoItem item)

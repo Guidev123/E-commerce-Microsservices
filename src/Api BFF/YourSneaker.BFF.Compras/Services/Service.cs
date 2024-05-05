@@ -32,7 +32,6 @@ namespace YourSneaker.BFF.Compras.Services
             response.EnsureSuccessStatusCode();
             return true;
         }
-
         protected ResponseResult RetornaOk()
         {
             return new ResponseResult();

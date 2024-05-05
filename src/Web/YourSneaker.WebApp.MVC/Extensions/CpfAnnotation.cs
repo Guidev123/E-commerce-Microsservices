@@ -8,9 +8,24 @@ namespace YourSneaker.WebApp.MVC.Extensions
 {
     public class CpfAttribute : ValidationAttribute
     {
+        //protected override ValidationResult IsValid(object value, ValidationContext validationContext)
+        //{
+        //    return Cpf.CpfValidation(value.ToString()) ? ValidationResult.Success : new ValidationResult("Cpf em formato inválido.");
+        //}
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
-            return Cpf.CpfValidation(value.ToString()) ? ValidationResult.Success : new ValidationResult("Cpf em formato inválido.");
+            if (value == null)
+            {
+                return new ValidationResult("O valor do CPF não pode ser nulo.");
+            }
+
+            string cpfValue = value.ToString();
+            if (string.IsNullOrWhiteSpace(cpfValue))
+            {
+                return new ValidationResult("O valor do CPF não pode ser vazio ou conter apenas espaços em branco.");
+            }
+
+            return Cpf.CpfValidation(cpfValue) ? ValidationResult.Success : new ValidationResult("CPF em formato inválido.");
         }
     }
 

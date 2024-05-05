@@ -82,6 +82,19 @@ namespace YourSneaker.Carrinho.API.Controllers
             return CustomResponse();
         }
 
+        [HttpPost]
+        [Route("carrinho/aplicar-cupom")]
+        public async Task<IActionResult> AplicarCupom(Cumpom cumpom)
+        {
+            var carrinho = await ObterCarrinhoCliente();
+
+            carrinho.AplicarCupom(cumpom);
+
+            _context.CarrinhoCliente.Update(carrinho);
+
+            await PersistirDados();
+            return CustomResponse();
+        }
         private async Task<CarrinhoCliente> ObterCarrinhoCliente()
         {
             return await _context.CarrinhoCliente
