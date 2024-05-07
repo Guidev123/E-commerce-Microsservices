@@ -13,7 +13,7 @@ namespace YourSneaker.Carrinho.API.Models
 
         public bool CumpomUtilizado { get; set; }
         public decimal Desconto { get; set; }
-        public Cumpom Cupom { get; set; }
+        public Cupom Cupom { get; set; }
 
         public CarrinhoCliente(Guid clienteId)
         {
@@ -23,7 +23,7 @@ namespace YourSneaker.Carrinho.API.Models
 
         //EF
         public CarrinhoCliente() { }
-        public void AplicarCupom(Cumpom cupom)
+        public void AplicarCupom(Cupom cupom)
         {
             Cupom = cupom;
             CumpomUtilizado = true;
@@ -42,7 +42,7 @@ namespace YourSneaker.Carrinho.API.Models
             decimal desconto = 0;
             var valor = ValorTotal;
 
-            if (Cupom.TipoDesconto == TipoDescontoCumpom.Porcentagem)
+            if (Cupom.TipoDesconto == TipoDescontoCupom.Porcentagem)
             {
                 if (Cupom.Percentual.HasValue)
                 {

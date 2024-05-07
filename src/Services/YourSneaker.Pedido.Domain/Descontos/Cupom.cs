@@ -8,13 +8,13 @@ using YourSneaker.Pedido.Domain.Descontos.Specs;
 
 namespace YourSneaker.Pedido.Domain.Descontos
 {
-    public class Cumpom : Entity, IAggregateRoot
+    public class Cupom : Entity, IAggregateRoot
     {
-        public string Codigo { get; private set; }
+        public string? Codigo { get; private set; }
         public decimal? Percentual { get; private set; }
         public decimal? ValorDesconto { get; private set; }
         public int Quantidade { get; private set; }
-        public TipoCumpom TipoDesconto { get; private set; }
+        public TipoCupom TipoDesconto { get; private set; }
         public DateTime DataCriacao { get; private set; }
         public DateTime? DataUtilizacao { get; private set; }
         public DateTime DataValidade { get; private set; }
@@ -22,9 +22,9 @@ namespace YourSneaker.Pedido.Domain.Descontos
         public bool Utilizado { get; private set; }
         public bool ValidoParaUtilizacao()
         {
-            var spec = new CumpomAtivoSpecification()
-                .And(new CumpomQuantidadeSpecification())
-                .And(new CumpomDataSpecification());
+            var spec = new CupomAtivoSpecification()
+                .And(new CupomQuantidadeSpecification())
+                .And(new CupomDataSpecification());
 
             return spec.IsSatisfiedBy(this);
         }

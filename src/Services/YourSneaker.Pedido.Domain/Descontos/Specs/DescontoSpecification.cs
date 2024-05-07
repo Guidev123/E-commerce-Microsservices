@@ -8,25 +8,25 @@ using YourSneaker.Core.Specification;
 
 namespace YourSneaker.Pedido.Domain.Descontos.Specs
 {
-    public class CumpomDataSpecification : Specification<Cumpom>
+    public class CupomDataSpecification : Specification<Cupom>
     {
-        public override Expression<Func<Cumpom, bool>> ToExpression()
+        public override Expression<Func<Cupom, bool>> ToExpression()
         {
             return desconto => desconto.DataValidade >= DateTime.Now;
         } 
     }
 
-    public class CumpomQuantidadeSpecification : Specification<Cumpom>
+    public class CupomQuantidadeSpecification : Specification<Cupom>
     {
-        public override Expression<Func<Cumpom, bool>> ToExpression()
+        public override Expression<Func<Cupom, bool>> ToExpression()
         {
             return desconto => desconto.Quantidade > 0;
         }
     }
 
-    public class CumpomAtivoSpecification : Specification<Cumpom> 
+    public class CupomAtivoSpecification : Specification<Cupom> 
     {
-        public override Expression<Func<Cumpom, bool>> ToExpression()
+        public override Expression<Func<Cupom, bool>> ToExpression()
         {
             return desconto => desconto.Ativo && !desconto.Utilizado;
         }

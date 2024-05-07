@@ -92,17 +92,18 @@ namespace YourSneaker.BFF.Compras.Controllers
         }
 
         [HttpPost]
-        [Route("compras/carrinho/aplicar-cumpom")]
-        public async Task<IActionResult> AplicarCumpom([FromBody] string cumpomCodigo)
+        [Route("compras/carrinho/aplicar-cupom")]
+
+        public async Task<IActionResult> AplicarCupom([FromBody] string cupomCodigo)
         {
-            var cumpom = await _pedidoService.ObterCumpomPorCodigo(cumpomCodigo);
-            if(cumpom is null)
+            var cupom = await _pedidoService.ObterCupomPorCodigo(cupomCodigo);
+            if(cupom is null)
             {
-                AddProcessError("Cupom de cumpom inválido ou não encontrado");
+                AddProcessError("Codigo de cupom inválido ou não encontrado");
                 return CustomResponse();
             }
 
-            var resposta = await _carrinhoService.AplicarCumpomCarrinho(cumpom);
+            var resposta = await _carrinhoService.AplicarCupomCarrinho(cupom);
             return CustomResponse(resposta);
         }
 

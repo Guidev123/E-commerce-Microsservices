@@ -20,14 +20,15 @@ namespace YourSneaker.Pedido.Infra.Data.Repository
 
         public IUnitOfWork UnitOfWork => _context;
 
-        public async Task<Cumpom> ObterCumpomPorCodigo(string codigo)
+        public async Task<Cupom> ObterCupomPorCodigo(string codigo)
         {
-            return await _context.Descontos.FirstOrDefaultAsync(p => p.Codigo == codigo);
+            var ret = await _context.Descontos.FirstOrDefaultAsync(p => p.Codigo == codigo);
+            return ret;
         }
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            _context?.Dispose();
         }
 
 

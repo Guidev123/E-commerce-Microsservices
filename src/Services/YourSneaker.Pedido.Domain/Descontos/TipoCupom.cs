@@ -1,6 +1,6 @@
 ﻿namespace YourSneaker.Pedido.Domain.Descontos
 {
-    public enum TipoCumpom
+    public enum TipoCupom
     {
         Porcentagem = 0,
         Valor = 1

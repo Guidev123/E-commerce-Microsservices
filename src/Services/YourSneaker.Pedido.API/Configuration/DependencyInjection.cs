@@ -16,7 +16,7 @@ namespace YourSneaker.Pedido.API.Configuration
             services.AddScoped<IAspNetUser, AspNetUser>();
             // APPLICATION
             services.AddScoped<IMediatorHandler, MediatorHandler>();
-            services.AddScoped<ICumpomQueries, DescontoQueries>();
+            services.AddScoped<ICupomQueries, CupomQueries>();
             // DATA
             services.AddScoped<ICupomRepository, CupomRepository>();
             services.AddScoped<PedidosContext>();

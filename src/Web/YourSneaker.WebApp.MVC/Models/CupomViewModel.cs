@@ -2,6 +2,6 @@
 {
     public class CupomViewModel
     {
-        public string Codigo { get; set; }
+        public string? Codigo { get; set; }
     }
 }

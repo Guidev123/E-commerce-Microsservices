@@ -3,23 +3,23 @@ using YourSneaker.Pedido.Domain.Descontos;
 
 namespace YourSneaker.Pedido.API.Application.Queries
 {
-    public interface ICumpomQueries
+    public interface ICupomQueries
     {
-        Task<CupomDTO> ObterCumpomPorCodigo(string codigo);
+        Task<CupomDTO> ObterCupomPorCodigo(string codigo);
     }
 
-    public class DescontoQueries : ICumpomQueries
+    public class CupomQueries : ICupomQueries
     {
-        private readonly ICupomRepository _cumpomRepository;
+        private readonly ICupomRepository _cupomRepository;
 
-        public DescontoQueries(ICupomRepository cumpomRepository)
+        public CupomQueries(ICupomRepository cupomRepository)
         {
-            _cumpomRepository = cumpomRepository;
+            _cupomRepository = cupomRepository;
         }
 
-        public async Task<CupomDTO> ObterCumpomPorCodigo(string codigo)
+        public async Task<CupomDTO> ObterCupomPorCodigo(string codigo)
         {
-            var cupom = await _cumpomRepository.ObterCumpomPorCodigo(codigo);
+            var cupom = await _cupomRepository.ObterCupomPorCodigo(codigo);
 
             if (cupom == null) return null;
 

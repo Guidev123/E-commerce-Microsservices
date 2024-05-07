@@ -9,25 +9,25 @@ using YourSneaker.WebAPI.Core.Controllers;
 namespace YourSneaker.Pedido.API.Controllers
 {
     [Authorize]
-    public class PedidoController : MainController
+    public class CupomController : MainController
     {
-        private readonly ICumpomQueries _cumpomQueries;
+        private readonly ICupomQueries _cupomQueries;
 
-        public PedidoController(ICumpomQueries cumpoQueries)
+        public CupomController(ICupomQueries cumpoQueries)
         {
-            _cumpomQueries = cumpoQueries;
+            _cupomQueries = cumpoQueries;
         }
 
-        [HttpGet("cumpom/{codigo}")]
+        [HttpGet("cupom/{codigo}")]
         [ProducesResponseType(typeof(CupomDTO), (int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
         public async Task<IActionResult> ObterPorCodigo(string codigo)
         {
             if (string.IsNullOrEmpty(codigo)) return NotFound();
 
-            var cumpom = await _cumpomQueries.ObterCumpomPorCodigo(codigo);
+            var cupom = await _cupomQueries.ObterCupomPorCodigo(codigo);
 
-            return cumpom == null ? NotFound() : CustomResponse(codigo);
+            return cupom == null ? NotFound() : CustomResponse(cupom);
         }
     }
 }

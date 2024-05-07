@@ -11,7 +11,7 @@ namespace YourSneaker.BFF.Compras.Services
         Task<ResponseResult> AdicionarItemCarrinho(ItemCarrinhoDTO produto);
         Task<ResponseResult> AtualizarItemCarrinho(Guid produtoId, ItemCarrinhoDTO carrinho);
         Task<ResponseResult> RemoverItemCarrinho(Guid produtoId);
-        Task<ResponseResult> AplicarCumpomCarrinho(CupomDTO desconto);
+        Task<ResponseResult> AplicarCupomCarrinho(CupomDTO desconto);
     }
 
     public class CarrinhoService : Service, ICarrinhoService
@@ -62,9 +62,9 @@ namespace YourSneaker.BFF.Compras.Services
 
             return RetornaOk();
         }
-        public async Task<ResponseResult> AplicarCumpomCarrinho(CupomDTO desconto)
+        public async Task<ResponseResult> AplicarCupomCarrinho(CupomDTO cupom)
         {
-            var itemContent = ObterConteudo(desconto);
+            var itemContent = ObterConteudo(cupom);
             var response = await _httpClient.PostAsync("/carrinho/aplicar-cupom/", itemContent);
 
             if (!TratarErrosResponse(response)) return await DeserializarObjetoResponse<ResponseResult>(response);

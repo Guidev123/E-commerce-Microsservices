@@ -84,11 +84,11 @@ namespace YourSneaker.Carrinho.API.Controllers
 
         [HttpPost]
         [Route("carrinho/aplicar-cupom")]
-        public async Task<IActionResult> AplicarCupom(Cumpom cumpom)
+        public async Task<IActionResult> AplicarCupom(Cupom cupom)
         {
             var carrinho = await ObterCarrinhoCliente();
 
-            carrinho.AplicarCupom(cumpom);
+            carrinho.AplicarCupom(cupom);
 
             _context.CarrinhoCliente.Update(carrinho);
 

@@ -7,7 +7,7 @@ namespace YourSneaker.BFF.Compras.Services
 {
     public interface IPedidoService
     {
-        Task<CupomDTO> ObterCumpomPorCodigo(string codigo);
+        Task<CupomDTO> ObterCupomPorCodigo(string codigo);
     }
 
     public class PedidoService : Service, IPedidoService
@@ -20,9 +20,9 @@ namespace YourSneaker.BFF.Compras.Services
             _httpClient.BaseAddress = new Uri(settings.Value.PedidoUrl);
         }
 
-        public async Task<CupomDTO> ObterCumpomPorCodigo(string codigo)
+        public async Task<CupomDTO> ObterCupomPorCodigo(string codigo)
         {
-            var response = await _httpClient.GetAsync($"/desconto/{codigo}/");
+            var response = await _httpClient.GetAsync($"/cupom/{codigo}/");
 
             if(response.StatusCode == HttpStatusCode.NotFound) return null;
             TratarErrosResponse(response);

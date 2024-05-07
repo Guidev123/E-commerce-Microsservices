@@ -17,7 +17,7 @@ namespace YourSneaker.Pedido.Infra.Data
         {
             _mediatorHandler = mediatorHandler;
         }
-        public DbSet<Cumpom> Descontos { get; set; }
+        public DbSet<Cupom> Descontos { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             foreach (var property in modelBuilder.Model.GetEntityTypes().SelectMany(

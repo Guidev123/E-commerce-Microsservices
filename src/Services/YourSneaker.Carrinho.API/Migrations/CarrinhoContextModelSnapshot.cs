@@ -83,7 +83,7 @@ namespace YourSneaker.Carrinho.API.Migrations
 
             modelBuilder.Entity("YourSneaker.Carrinho.API.Models.CarrinhoCliente", b =>
                 {
-                    b.OwnsOne("YourSneaker.Carrinho.API.Models.Cumpom", "Cupom", b1 =>
+                    b.OwnsOne("YourSneaker.Carrinho.API.Models.Cupom", "Cupom", b1 =>
                         {
                             b1.Property<Guid>("CarrinhoClienteId")
                                 .HasColumnType("uniqueidentifier");

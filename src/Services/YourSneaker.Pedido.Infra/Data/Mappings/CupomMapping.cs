@@ -10,9 +10,9 @@ using YourSneaker.Pedido.Domain.Descontos;
 
 namespace YourSneaker.Pedido.Infra.Data.Mappings
 {
-    public class CumpomMapping : IEntityTypeConfiguration<Cumpom>
+    public class CupomMapping : IEntityTypeConfiguration<Cupom>
     {
-        public void Configure(EntityTypeBuilder<Cumpom> builder)
+        public void Configure(EntityTypeBuilder<Cupom> builder)
         {
             builder.HasKey(c => c.Id);
 

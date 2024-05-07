@@ -3,7 +3,7 @@
     public class CarrinhoViewModel
     {
         public decimal ValorTotal { get; set; }
-        public CupomViewModel Cupom { get; set; }
+        public CupomViewModel? Cupom { get; set; }
         public decimal Desconto { get; set; }
         public bool CupomUtilizado { get; set; }
         public List<ItemCarrinhoViewModel> Itens { get; set; } = new List<ItemCarrinhoViewModel>();

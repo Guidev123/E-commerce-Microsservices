@@ -25,7 +25,7 @@ namespace YourSneaker.Pedido.Infra.Migrations
             modelBuilder.HasSequence<int>("MinhaSequencia")
                 .StartsAt(1000L);
 
-            modelBuilder.Entity("YourSneaker.Pedido.Domain.Descontos.Cumpom", b =>
+            modelBuilder.Entity("YourSneaker.Pedido.Domain.Descontos.Cupom", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -53,7 +53,7 @@ namespace YourSneaker.Pedido.Infra.Migrations
                     b.Property<int>("Quantidade")
                         .HasColumnType("int");
 
-                    b.Property<int>("TipoCumpom")
+                    b.Property<int>("TipoCupom")
                         .HasColumnType("int");
 
                     b.Property<bool>("Utilizado")
