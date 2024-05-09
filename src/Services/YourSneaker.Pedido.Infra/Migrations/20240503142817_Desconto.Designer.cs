@@ -56,7 +56,7 @@ namespace YourSneaker.Pedido.Infra.Migrations
                     b.Property<int>("Quantidade")
                         .HasColumnType("int");
 
-                    b.Property<int>("TipoCupom")
+                    b.Property<int>("TipoDesconto")
                         .HasColumnType("int");
 
                     b.Property<bool>("Utilizado")

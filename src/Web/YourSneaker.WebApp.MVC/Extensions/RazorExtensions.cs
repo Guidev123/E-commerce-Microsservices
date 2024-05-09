@@ -24,7 +24,7 @@ namespace YourSneaker.WebApp.MVC.Extensions
 
         public static string MoneyFormat(this RazorPage page, decimal valor)
         {
-            return valor > 0 ? string.Format(Thread.CurrentThread.CurrentCulture, "{0:C}", valor) : "Gratuito";
+            return valor > 0 ? string.Format(Thread.CurrentThread.CurrentCulture, "{0:C}", valor) : "R$ 00,00";
         }
 
         public static string StockMessage(this RazorPage page, int quantidade)

@@ -1,6 +1,7 @@
 ﻿using YourSneaker.Core.Mediator;
 using YourSneaker.Pedido.API.Application.Queries;
 using YourSneaker.Pedido.Domain.Descontos;
+using YourSneaker.Pedido.Domain.Pedidos;
 using YourSneaker.Pedido.Infra.Data;
 using YourSneaker.Pedido.Infra.Data.Repository;
 using YourSneaker.WebAPI.Core.User;
@@ -20,7 +21,7 @@ namespace YourSneaker.Pedido.API.Configuration
             // DATA
             services.AddScoped<ICupomRepository, CupomRepository>();
             services.AddScoped<PedidosContext>();
-        
+            services.AddScoped<IPedidoRepository, PedidoRepository>();
         }
     }
 }

@@ -1,10 +1,12 @@
 ﻿using FluentValidation.Results;
+
 using Microsoft.EntityFrameworkCore;
 using YourSneaker.Core.Data;
 using YourSneaker.Core.DomainObjects;
 using YourSneaker.Core.Mediator;
 using YourSneaker.Core.Messages;
 using YourSneaker.Pedido.Domain.Descontos;
+using YourSneaker.Pedido.Domain.Pedidos;
 
 namespace YourSneaker.Pedido.Infra.Data
 {
@@ -17,7 +19,10 @@ namespace YourSneaker.Pedido.Infra.Data
         {
             _mediatorHandler = mediatorHandler;
         }
+        public DbSet<Pedidos> Pedidos { get; set; }
+        public DbSet<PedidoItem> PedidoItems { get; set; }
         public DbSet<Cupom> Descontos { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             foreach (var property in modelBuilder.Model.GetEntityTypes().SelectMany(
@@ -38,6 +43,19 @@ namespace YourSneaker.Pedido.Infra.Data
         }
         public async Task<bool> Commit()
         {
+            foreach (var entry in ChangeTracker.Entries()
+               .Where(entry => entry.Entity.GetType().GetProperty("DataCadastro") != null))
+            {
+                if (entry.State == EntityState.Added)
+                {
+                    entry.Property("DataCadastro").CurrentValue = DateTime.Now;
+                }
+
+                if (entry.State == EntityState.Modified)
+                {
+                    entry.Property("DataCadastro").IsModified = false;
+                }
+            }
             var sucesso = await base.SaveChangesAsync() > 0;
 
             if (sucesso)

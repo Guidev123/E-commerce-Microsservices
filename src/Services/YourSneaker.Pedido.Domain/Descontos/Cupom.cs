@@ -14,7 +14,7 @@ namespace YourSneaker.Pedido.Domain.Descontos
         public decimal? Percentual { get; private set; }
         public decimal? ValorDesconto { get; private set; }
         public int Quantidade { get; private set; }
-        public TipoCupom TipoDesconto { get; private set; }
+        public TipoDesconto TipoDesconto { get; private set; }
         public DateTime DataCriacao { get; private set; }
         public DateTime? DataUtilizacao { get; private set; }
         public DateTime DataValidade { get; private set; }

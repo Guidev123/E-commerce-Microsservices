@@ -120,19 +120,14 @@
                         </div>
                         <div class="card">
                             <div class="card-body">
-                                @{
-                                    if (Model.CupomUtilizado)
-                                    {
-                                        <dl class="dlist-align">
-                                            <dt>Valor original:</dt>
-                                            <dd class="text-right">@this.MoneyFormat(Model.ValorTotal + Model.Desconto)</dd>
-                                        </dl>
-                                        <dl class="dlist-align" style="color:green">
-                                            <dt>Desconto:</dt>
-                                            <dd class="text-right">@this.MoneyFormat(Model.Desconto)</dd>
-                                        </dl>
-                                    }
-                                }
+                                <dl class="dlist-align">
+                                    <dt>Valor original:</dt>
+                                    <dd class="text-right">@this.MoneyFormat(Model.ValorTotal + Model.Desconto)</dd>
+                                </dl>
+                                <dl class="dlist-align" style="color:green">
+                                    <dt>Desconto:</dt>
+                                    <dd class="text-right">@this.MoneyFormat(Model.Desconto)</dd>
+                                </dl>
                                 <dl class="dlist-align">
                                     <dt>Total:</dt>
                                     <dd class="text-right  h5">

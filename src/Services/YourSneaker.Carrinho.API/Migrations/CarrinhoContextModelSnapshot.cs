@@ -31,7 +31,7 @@ namespace YourSneaker.Carrinho.API.Migrations
                     b.Property<Guid>("ClienteId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<bool>("CumpomUtilizado")
+                    b.Property<bool>("CupomUtilizado")
                         .HasColumnType("bit");
 
                     b.Property<decimal>("Desconto")
