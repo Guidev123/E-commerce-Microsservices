@@ -10,5 +10,6 @@ namespace YourSneaker.Pedido.Domain.Descontos
     public interface ICupomRepository : IRepository<Cupom>
     {
         Task<Cupom> ObterCupomPorCodigo(string codigo);
+        void Atualizar(Cupom cupom);
     }
 }

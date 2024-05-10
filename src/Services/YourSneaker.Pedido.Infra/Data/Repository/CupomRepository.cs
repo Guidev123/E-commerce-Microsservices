@@ -26,11 +26,16 @@ namespace YourSneaker.Pedido.Infra.Data.Repository
             return ret;
         }
 
+        public void Atualizar(Cupom cupom)
+        {
+            //ATUALIZA INFO DO CUPOM NA TABELA DESCONTOS
+            _context.Descontos.Update(cupom);
+        }
+
         public void Dispose()
         {
             _context?.Dispose();
         }
-
 
     }
 }

@@ -10,6 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+	  <PackageReference Include="dapper" Version="2.1.35" />
 	  <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
 	  <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.4">
 		  <PrivateAssets>all</PrivateAssets>
@@ -17,11 +18,6 @@
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.6" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Application\Commands\" />
-    <Folder Include="Application\Events\" />
   </ItemGroup>
 
   <ItemGroup>

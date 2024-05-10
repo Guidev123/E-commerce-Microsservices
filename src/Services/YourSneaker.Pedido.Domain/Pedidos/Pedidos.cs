@@ -55,7 +55,7 @@ namespace YourSneaker.Pedido.Domain.Pedidos
             Endereco = endereco;
         }
 
-        internal void CalculoDoValorPedido()
+        public void CalculoDoValorPedido()
         {
             ValorTotal = PedidoItems.Sum(p => p.CalcularValor());
             CalcularValorTotalDesconto();

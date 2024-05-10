@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,9 @@ namespace YourSneaker.Pedido.Infra.Data.Repository
             _context = context;
         }
         public IUnitOfWork UnitOfWork => _context;
+
+        //PEGANDO A CONEXAO DO BANCO DO EF
+        public DbConnection ObterConexao() => _context.Database.GetDbConnection();
         public async Task<Pedidos> ObterPorId(Guid id)
         {
             return await _context.Pedidos.FindAsync(id);

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +14,7 @@ namespace YourSneaker.Pedido.Domain.Pedidos
         Task<IEnumerable<Pedidos>> ObterListaPorClienteId(Guid clienteId);
         void Adicionar(Pedidos pedido);
         void Atualizar(Pedidos pedido);  
-
+        DbConnection ObterConexao();  
         // Pedido Item 
         Task<PedidoItem> ObterItemPorId(Guid id);   
         Task<PedidoItem> ObterItemPorPedido(Guid pedidoId, Guid produtoId);
