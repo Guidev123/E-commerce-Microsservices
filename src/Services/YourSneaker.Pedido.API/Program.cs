@@ -5,6 +5,7 @@ using YourSneaker.WebAPI.Core.Identidade;
 using System.Reflection;
 using YourSneaker.Pedido.API.Controllers;
 using YourSneaker.Pedido.API.Configuration;
+using YourSneaker.MessageBus;
 //========================================== Environment Configure ===============================================/
 var builder = WebApplication.CreateBuilder(args);
 builder.Configuration
@@ -17,6 +18,7 @@ builder.Configuration
 
 //API CONFIG
 builder.Services.AddMediatR(typeof(Program));
+builder.Services.AddMessageBusConfiguration(builder.Configuration);
 builder.Services.AddApiConfig(builder.Configuration);
 builder.Services.AddJwtConfiguration(builder.Configuration);
 builder.Services.RegisterServices();
