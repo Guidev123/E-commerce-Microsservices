@@ -62,21 +62,24 @@
                     </article>
 
                     <partial name="_ResumoFinanceiro" model="Model" />
-
-                    <div class="card-body border-top">
+                    <hr/>
+                    <div class="shift-right">
                         <partial name="_Endereco" model="Model" />
                     </div>
-                    <div class="card-body border-top">
+                    <hr />
+                    <div class="shift-left">
                         @{
                             if (Model.Endereco != null)
                             {
-                                <div class="text-left">
-                                    <a asp-controller="Pedido" asp-action="Pagamento" class="btn btn-primary float-md-right"> Pagamento <i class="fa fa-chevron-right"></i> </a>
+                                <div class="button-right">
+                                    <a asp-controller="Pedido" asp-action="Pagamento" class="btn btn-primary btn-style-light flex-grow-1 m-r-xxs"> Pagamento <i class="fa fa-chevron-right"></i> </a>
                                 </div>
                             }
                         }
-
-                        <a asp-controller="Carrinho" asp-action="Index" class="btn btn-light"> <i class="fa fa-chevron-left"></i> Voltar ao carrinho </a>
+                        <div class="shift-right">
+                            <a asp-controller="Carrinho" asp-action="Index" class="btn btn-danger btn-style-light flex-grow-1 m-l-xxs"> <i class="fa fa-chevron-left"></i> Voltar ao carrinho </a>
+                        </div>
+                        <br/>
                     </div>
                 </div>
             }

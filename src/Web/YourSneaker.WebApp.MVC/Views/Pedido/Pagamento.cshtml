@@ -64,7 +64,8 @@
                     <partial name="_ResumoFinanceiro" model="Model" />
 
                     <form asp-action="FinalizarPedido" asp-controller="Pedido">
-                        <article class="card-body border-top">
+                    <hr/>
+                        <article class="shift-right">
 
                             <div class="card-body">
                                 <div class="row">
@@ -81,10 +82,6 @@
                                             <div class="input-group">
                                                 <input asp-for="NumeroCartao" class="form-control" />
                                                 <div class="input-group-append">
-                                                    <span class="input-group-text">
-                                                        <i class="fab fa-cc-visa"></i> &nbsp; <i class="fab fa-cc-amex"></i> &nbsp;
-                                                        <i class="fab fa-cc-mastercard"></i>
-                                                    </span>
                                                 </div>
                                                 <span asp-validation-for="NumeroCartao" class="text-danger"></span>
                                             </div>
@@ -118,14 +115,16 @@
 
                             </div>
                         </article>
-
-                        <div class="card-body border-top">
-                            <div class="text-left">
-                                <button type="submit" class="btn btn-primary float-md-right"> Finalizar Pedido <i class="fa fa-chevron-right"></i> </button>
+                        <hr/>
+                        <div class="shift-left">
+                            <div class="button-right">
+                                <button type="submit" class="btn btn-primary btn-style-light flex-grow-1 m-r-xxs"> Finalizar Pedido <i class="fa fa-chevron-right"></i> </button>
                             </div>
-
-                            <a asp-controller="Pedido" asp-action="EnderecoEntrega" class="btn btn-light"> <i class="fa fa-chevron-left"></i> Voltar ao Endereço </a>
+                            <div class="shift-right">
+                                <a asp-controller="Pedido" asp-action="EnderecoEntrega" class="btn btn-danger btn-style-light flex-grow-1 m-l-xxs"> <i class="fa fa-chevron-left"></i> Voltar ao Endereço </a>
+                            </div>
                         </div>
+                        <br />
                     </form>
                 </div>
             }

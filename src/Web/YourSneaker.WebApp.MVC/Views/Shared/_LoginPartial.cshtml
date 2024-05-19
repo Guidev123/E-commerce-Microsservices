@@ -14,8 +14,16 @@
                 <div class="sidebar-user-switcher user-activity-online">
                     <a href="#">
                         <img class="icon icon-sm rounded-circle" src="https://s.gravatar.com/avatar/@this.HashEmailGravatar(AppUser.ObterUserEmail())?d=mm&s=45">
-                        <a class="nav-link active" asp-controller="Identidade" asp-action="Logout">Sair</a>
                     </a>
+                    <li class="nav-item dropdown hidden-on-mobile">
+                        <a class="nav-link dropdown-toggle" href="#" id="addDropdownLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="material-icons">add</i>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="addDropdownLink">
+                            <li><a class="dropdown-item" asp-controller="Pedido" asp-action="MeusPedidos">Meus Pedidos</a></li>
+                            <li><a class="dropdown-item" asp-controller="Identidade" asp-action="Logout">Sair</a></li>
+                        </ul>
+                    </li>
                 </div>
             </div>
         </div>

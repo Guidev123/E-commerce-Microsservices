@@ -1,7 +1,7 @@
 ﻿@using YourSneaker.WebApp.MVC.Extensions
 @model YourSneaker.WebApp.MVC.Models.PedidoTransacaoViewModel
-
-<article class="card-body border-top">
+<hr/>
+<article class="shift-right">
     <dl class="row">
 
         <dt class="col-sm-10">Subtotal: <span class="float-right text-muted">@Model.PedidoItems.Sum(i => i.Quantidade) itens</span></dt>
@@ -16,7 +16,7 @@
 
         <dt class="col-sm-10">Total:</dt>
         <dd class="col-sm-2 text-right">
-            <strong class="h5 text-dark">@this.MoneyFormat(Model.ValorTotal)</strong>
+            <strong class="h5">@this.MoneyFormat(Model.ValorTotal)</strong>
         </dd>
     </dl>
 </article>
