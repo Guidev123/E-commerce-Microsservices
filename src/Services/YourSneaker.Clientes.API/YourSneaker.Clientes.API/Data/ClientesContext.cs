@@ -42,11 +42,7 @@ namespace YourSneaker.Clientes.API.Data
         public async Task<bool> Commit()
         {
             var sucesso = await base.SaveChangesAsync() > 0;
-
-            if(sucesso)
-            {
-                await _mediatorHandler.PublicarEventos(this);
-            }
+            if (sucesso) await _mediatorHandler.PublicarEventos(this);
 
             return sucesso;
         }

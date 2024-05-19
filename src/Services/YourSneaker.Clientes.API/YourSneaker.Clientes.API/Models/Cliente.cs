@@ -9,7 +9,7 @@ namespace YourSneaker.Clientes.API.Models
         public Email Email { get; private set; }
         public Cpf Cpf { get; private set; }
         public bool Excluido { get; private set; }
-        public Endereco Endereco { get; private set; }
+        public Endereco? Endereco { get; private set; }
 
         // EF Relation
         protected Cliente() { }

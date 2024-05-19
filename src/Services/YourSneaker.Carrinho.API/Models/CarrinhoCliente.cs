@@ -11,7 +11,7 @@ namespace YourSneaker.Carrinho.API.Models
         public List<CarrinhoItem> Itens { get; set; } = new List<CarrinhoItem>();
         public ValidationResult? ValidationResult { get; set; } 
 
-        public bool CupomUtilizado { get; set; }
+        public bool CumpomUtilizado { get; set; }
         public decimal Desconto { get; set; }
         public Cupom Cupom { get; set; }
 
@@ -26,7 +26,7 @@ namespace YourSneaker.Carrinho.API.Models
         public void AplicarCupom(Cupom cupom)
         {
             Cupom = cupom;
-            CupomUtilizado = true;
+            CumpomUtilizado = true;
             CalculoDoValorCarrinho();
         }
         internal void CalculoDoValorCarrinho()
@@ -37,7 +37,7 @@ namespace YourSneaker.Carrinho.API.Models
 
         private void CalcularValorTotalDesconto()
         {
-            if (!CupomUtilizado) return;
+            if (!CumpomUtilizado) return;
 
             decimal desconto = 0;
             var valor = ValorTotal;

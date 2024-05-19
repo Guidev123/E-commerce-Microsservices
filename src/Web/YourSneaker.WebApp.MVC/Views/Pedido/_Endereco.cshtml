@@ -1,0 +1,28 @@
+﻿@model YourSneaker.WebApp.MVC.Models.PedidoTransacaoViewModel
+
+<h4 class="card-title">Endereço</h4>
+@{
+    if (Model.Endereco == null)
+    {
+        <partial name="_NovoEndereco" />
+    }
+    else
+    {
+        <div class="row">
+            <div class="col-9 text-left">
+                @Model.Endereco.ToString()
+            </div>
+        </div>
+    }
+}
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#enderecoModal">
+    Adicionar Endereço
+</button>
+
+<!-- Modal -->
+<partial name="_NovoEndereco" />
+
+

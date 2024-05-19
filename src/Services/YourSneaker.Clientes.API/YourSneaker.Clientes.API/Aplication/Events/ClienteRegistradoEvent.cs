@@ -19,6 +19,5 @@ namespace YourSneaker.Clientes.API.Aplication.Events
             Email = email;
             Cpf = cpf;
         }
-
     }
 }

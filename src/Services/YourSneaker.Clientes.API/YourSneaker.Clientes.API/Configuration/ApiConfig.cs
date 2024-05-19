@@ -39,9 +39,6 @@ namespace YourSneaker.Clientes.API.Configuration
             {
                 endpoints.MapControllers();
             });
-
-            
-
         }
     }
 }

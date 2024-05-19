@@ -10,7 +10,7 @@ namespace YourSneaker.Pedido.API.Application.DTO
         public DateTime Data { get; set; }
         public decimal ValorTotal { get; set; }
         public decimal Desconto { get; set; }
-        public string CupomCodigo { get; set; }
+        public string? CupomCodigo { get; set; }
         public bool CupomUtilizado { get; set; }
 
         public List<PedidoItemDTO> PedidoItems { get; set; }

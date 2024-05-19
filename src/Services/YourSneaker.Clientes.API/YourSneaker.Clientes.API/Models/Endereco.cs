@@ -13,10 +13,10 @@ namespace YourSneaker.Clientes.API.Models
         public string Estado { get; private set; }
         public Guid ClienteId { get; private set; }
 
-        //ENTITY FRAMEWORK RELATION
-        public Cliente Cliente { get; private set; }
+        // EF Relation
+        public virtual Cliente Cliente { get; protected set; }
 
-        public Endereco(string logradouro, string numero, string complemento, string bairro, string cep, string cidade, string estado)
+        public Endereco(string logradouro, string numero, string complemento, string bairro, string cep, string cidade, string estado, Guid clienteId)
         {
             Logradouro = logradouro;
             Numero = numero;
@@ -25,7 +25,10 @@ namespace YourSneaker.Clientes.API.Models
             Cep = cep;
             Cidade = cidade;
             Estado = estado;
+            ClienteId = clienteId;
         }
 
+        // EF Constructor
+        protected Endereco() { }
     }
 }

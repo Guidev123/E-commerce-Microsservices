@@ -24,9 +24,16 @@ namespace YourSneaker.WebApp.MVC.Extensions
 
         public static string MoneyFormat(this RazorPage page, decimal valor)
         {
-            return valor > 0 ? string.Format(Thread.CurrentThread.CurrentCulture, "{0:C}", valor) : "R$ 00,00";
+            return MoneyFormat(valor);
         }
-
+        private static string MoneyFormat(decimal valor)
+        {
+            return string.Format(Thread.CurrentThread.CurrentCulture, "{0:C}", valor);
+        }
+        public static string UnidadesPorProdutoValorTotal(this RazorPage page, int unidades, decimal valor)
+        {
+            return $"{unidades}x {MoneyFormat(valor)} | Total: {MoneyFormat(valor * unidades)}";
+        }
         public static string StockMessage(this RazorPage page, int quantidade)
         {
             return quantidade > 0 ? $"Apenas {quantidade} unidades disponíveis" : "Esgotado!";
@@ -48,6 +55,38 @@ namespace YourSneaker.WebApp.MVC.Extensions
             }
 
             return sb.ToString();
+        }
+        public static string ExibeStatus(this RazorPage page, int status)
+        {
+            var statusMensagem = "";
+            var statusClasse = "";
+
+            switch (status)
+            {
+                case 1:
+                    statusClasse = "info";
+                    statusMensagem = "Em aprovação";
+                    break;
+                case 2:
+                    statusClasse = "primary";
+                    statusMensagem = "Aprovado";
+                    break;
+                case 3:
+                    statusClasse = "danger";
+                    statusMensagem = "Recusado";
+                    break;
+                case 4:
+                    statusClasse = "success";
+                    statusMensagem = "Entregue";
+                    break;
+                case 5:
+                    statusClasse = "warning";
+                    statusMensagem = "Cancelado";
+                    break;
+
+            }
+
+            return $"<span class='badge badge-{statusClasse}'>{statusMensagem}</span>";
         }
     }
 }
