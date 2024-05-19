@@ -42,7 +42,7 @@ namespace YourSneaker.Pedido.API.Controllers
                 ValorTotal = pedido.ValorTotal,
                 PedidoItems = pedido.PedidoItems,
                 CupomCodigo = pedido.CupomCodigo,
-                CupomUtilizado = pedido.CupomUtilizado,
+                CumpomUtilizado = pedido.CumpomUtilizado,
                 Desconto = pedido.Desconto,
                 Endereco = pedido.Endereco,
                 NumeroCartao = pedido.NumeroCartao,

@@ -58,7 +58,7 @@ namespace YourSneaker.WebApp.MVC.Controllers
             var carrinho1 = await _comprasBFFService.ObterCarrinho();
             pedidoTransacao.PedidoItems = carrinho1.Itens;
             pedidoTransacao.ValorTotal = carrinho1.ValorTotal;
-            pedidoTransacao.CupomUtilizado = carrinho1.CupomUtilizado;
+            pedidoTransacao.CumpomUtilizado = carrinho1.CumpomUtilizado;
             pedidoTransacao.Desconto = carrinho1.Desconto;
 
             var retorno = await _comprasBFFService.FinalizarPedido(pedidoTransacao);

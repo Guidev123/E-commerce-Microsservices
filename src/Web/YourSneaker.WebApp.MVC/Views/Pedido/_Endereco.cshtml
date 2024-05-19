@@ -5,6 +5,9 @@
     if (Model.Endereco == null)
     {
         <partial name="_NovoEndereco" />
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#enderecoModal">
+            Adicionar Endereço
+        </button>
     }
     else
     {
@@ -15,12 +18,6 @@
         </div>
     }
 }
-
-
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#enderecoModal">
-    Adicionar Endereço
-</button>
 
 <!-- Modal -->
 <partial name="_NovoEndereco" />

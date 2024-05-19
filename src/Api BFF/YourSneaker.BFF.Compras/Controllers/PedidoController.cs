@@ -121,7 +121,7 @@ namespace YourSneaker.BFF.Compras.Controllers
         private void PopularDadosPedido(CarrinhoDTO carrinho, EnderecoDTO endereco, PedidoDTO pedido)
         {
             pedido.CupomCodigo = carrinho.Cupom?.Codigo;
-            pedido.CupomUtilizado = carrinho.CupomUtilizado;
+            pedido.CumpomUtilizado = carrinho.CumpomUtilizado;
             pedido.ValorTotal = carrinho.ValorTotal;
             pedido.Desconto = carrinho.Desconto;
             pedido.PedidoItems = carrinho.Itens;

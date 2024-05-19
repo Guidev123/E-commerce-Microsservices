@@ -18,7 +18,7 @@ namespace YourSneaker.BFF.Compras.Models
 
         public decimal? Desconto { get; set; }
         public string? CupomCodigo { get; set; }
-        public bool CupomUtilizado { get; set; }
+        public bool CumpomUtilizado { get; set; }
 
         public List<ItemCarrinhoDTO> PedidoItems { get; set; }
 

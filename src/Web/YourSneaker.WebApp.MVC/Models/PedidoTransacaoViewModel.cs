@@ -9,7 +9,7 @@ namespace YourSneaker.WebApp.MVC.Models
         public decimal ValorTotal { get; set; }
         public decimal Desconto { get; set; }
         public string? CupomCodigo { get; set; }
-        public bool CupomUtilizado { get; set; }
+        public bool CumpomUtilizado { get; set; }
 
         public List<ItemCarrinhoViewModel> PedidoItems { get; set; } = new List<ItemCarrinhoViewModel>();
         public EnderecoViewModel? Endereco { get; set; }

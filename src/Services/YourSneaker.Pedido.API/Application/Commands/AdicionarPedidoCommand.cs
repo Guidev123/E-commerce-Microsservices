@@ -13,7 +13,7 @@ namespace YourSneaker.Pedido.API.Application.Commands
 
         // Cupom
         public string CupomCodigo { get; set; }
-        public bool CupomUtilizado { get; set; }
+        public bool CumpomUtilizado { get; set; }
         public decimal Desconto { get; set; }
 
         // Endereco

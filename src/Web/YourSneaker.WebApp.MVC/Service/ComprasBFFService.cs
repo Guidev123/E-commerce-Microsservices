@@ -127,7 +127,7 @@ namespace YourSneaker.WebApp.MVC.Service
                 ValorTotal = carrinho.ValorTotal,
                 PedidoItems = carrinho.Itens,
                 Desconto = carrinho.Desconto,
-                CupomUtilizado = carrinho.CupomUtilizado,
+                CumpomUtilizado = carrinho.CumpomUtilizado,
                 CupomCodigo = carrinho.Cupom?.Codigo
             };
 

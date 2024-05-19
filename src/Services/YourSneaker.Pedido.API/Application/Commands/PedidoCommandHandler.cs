@@ -66,7 +66,7 @@ namespace YourSneaker.Pedido.API.Application.Commands
             };
 
             var pedido = new Pedidos(message.ClienteId, message.ValorTotal, message.PedidoItems.Select(PedidoItemDTO.ParaPedidoItem).ToList(),
-                message.CupomUtilizado, message.Desconto);
+                message.CumpomUtilizado, message.Desconto);
 
             pedido.AtribuirEndereco(endereco);
             return pedido;
@@ -74,7 +74,7 @@ namespace YourSneaker.Pedido.API.Application.Commands
 
         private async Task<bool> AplicarCupom(AdicionarPedidoCommand message, Pedidos pedido)
         {
-            if (!message.CupomUtilizado) return true;
+            if (!message.CumpomUtilizado) return true;
 
             var cupom = await _cupomRepository.ObterCupomPorCodigo(message.CupomCodigo);
             if (cupom == null)
