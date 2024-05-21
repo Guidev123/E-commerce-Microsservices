@@ -23,21 +23,6 @@
   <ItemGroup>
     <None Include="wwwroot\assets\.DS_Store" />
     <None Include="wwwroot\assets\css\.DS_Store" />
-    <None Include="wwwroot\assets\images\.DS_Store" />
-    <None Include="wwwroot\assets\images\avatars\.DS_Store" />
-    <None Include="wwwroot\assets\images\backgrounds\error.svg" />
-    <None Include="wwwroot\assets\images\backgrounds\lock-screen.svg" />
-    <None Include="wwwroot\assets\images\backgrounds\sign-in.svg" />
-    <None Include="wwwroot\assets\images\backgrounds\sign-up.svg" />
-    <None Include="wwwroot\assets\images\cards\.DS_Store" />
-    <None Include="wwwroot\assets\images\icons\.DS_Store" />
-    <None Include="wwwroot\assets\images\icons\twitter.svg" />
-    <None Include="wwwroot\assets\images\other\.DS_Store" />
-    <None Include="wwwroot\assets\images\other\facebook_logo.svg" />
-    <None Include="wwwroot\assets\images\other\visa.svg" />
-    <None Include="wwwroot\assets\images\widgets\.DS_Store" />
-    <None Include="wwwroot\assets\images\widgets\security.svg" />
-    <None Include="wwwroot\assets\images\widgets\speed.svg" />
     <None Include="wwwroot\assets\js\.DS_Store" />
     <None Include="wwwroot\assets\js\custom.js" />
     <None Include="wwwroot\assets\js\main.js" />
@@ -74,9 +59,6 @@
     <None Include="wwwroot\assets\plugins\bootstrap\js\popper.min.js" />
     <None Include="wwwroot\assets\plugins\bootstrap\js\popper.min.js.map" />
     <None Include="wwwroot\assets\plugins\bs-stepper\bs-stepper.min.js" />
-    <None Include="wwwroot\assets\plugins\chartjs\chart.bundle.min.js" />
-    <None Include="wwwroot\assets\plugins\countdown\jquery.countdown.js" />
-    <None Include="wwwroot\assets\plugins\countdown\jquery.countdown.min.js" />
     <None Include="wwwroot\assets\plugins\datatables\DataTables-1.10.20\js\dataTables.bootstrap.js" />
     <None Include="wwwroot\assets\plugins\datatables\DataTables-1.10.20\js\dataTables.bootstrap.min.js" />
     <None Include="wwwroot\assets\plugins\datatables\DataTables-1.10.20\js\dataTables.bootstrap4.js" />
