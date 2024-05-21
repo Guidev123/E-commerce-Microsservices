@@ -73,18 +73,26 @@
 <h1></h1>
 <h1>Funcionamento da aplicação até agora</h1>
 <br/>
-<strong>(Não está finalizada, irei atualizando o video de acordo com o desenvolvimento. Estão pendentes as API's de Pedidos, Pagamentos e a API Gateway de compras.)</strong>
+<strong>(Não está finalizada, irei atualizando o video de acordo com o desenvolvimento. Esta pendente somente a API de Pagamento. ULTIMA ATUALIZAÇÃO 19/05/2024)</strong>
 <br/>
 <br/>
 <br/>
 
-https://github.com/Guidev123/YourSneakerEnterprise/assets/155389912/40016c1b-5d56-4eee-89e6-ce5415eb67a0
+https://github.com/Guidev123/YourSneakerEnterprise/assets/155389912/6551fd48-3c81-4739-885a-11cd98602720
+
+https://github.com/Guidev123/YourSneakerEnterprise/assets/155389912/49fda926-2442-4a7c-8313-ca79ff2f65eb
+
+https://github.com/Guidev123/YourSneakerEnterprise/assets/155389912/b5ee6760-f334-4373-9000-638b6edcb1de
+
+
+
+
 
 <h1></h1>
 <br/>
 <br/>
 <br/>
-<h1>API's desenvolvidas até agora:</h1>
+<h1>API's desenvolvidas:</h1>
 <br/>
 <br/>
 <br/>
@@ -98,7 +106,8 @@ https://github.com/Guidev123/YourSneakerEnterprise/assets/155389912/40016c1b-5d5
 <br/>
 <h1>API de Clientes</h1>
 
-![client](https://github.com/Guidev123/YourSneakerEnterprise/assets/155389912/2cce0fb0-f6ae-4653-85de-b21071c4cb8f)
+![clientes](https://github.com/Guidev123/YourSneakerEnterprise/assets/155389912/7241993b-2985-4b1b-8d97-394c139da037)
+
 
 <h1></h1>
 <br/>
@@ -106,7 +115,8 @@ https://github.com/Guidev123/YourSneakerEnterprise/assets/155389912/40016c1b-5d5
 <br/>
 <h1>API de Catalogo</h1>
 
-![catalogo](https://github.com/Guidev123/YourSneakerEnterprise/assets/155389912/ad4bfc7c-08f6-4a43-9e1d-c51cbaebb902)
+![catalogoo](https://github.com/Guidev123/YourSneakerEnterprise/assets/155389912/f3c7070f-0f34-4262-8932-122b15217d50)
+
 
 <h1></h1>
 <br/>
@@ -114,7 +124,8 @@ https://github.com/Guidev123/YourSneakerEnterprise/assets/155389912/40016c1b-5d5
 <br/>
 <h1>API de Carrinho</h1>
 
-![car](https://github.com/Guidev123/YourSneakerEnterprise/assets/155389912/15b0de2c-c67a-40c2-97d9-5885db0eecd9)
+![Carrinho](https://github.com/Guidev123/YourSneakerEnterprise/assets/155389912/23cf89fa-241b-4b0d-8993-7f9472835bd1)
+
 
 <h1></h1>
 <br/>
@@ -122,4 +133,13 @@ https://github.com/Guidev123/YourSneakerEnterprise/assets/155389912/40016c1b-5d5
 <br/>
 <h1>API Gateway</h1>
 
-![APIgateway](https://github.com/Guidev123/YourSneakerEnterprise/assets/155389912/e3b31941-9b8b-4f23-ae09-91d814ed27ef)
+![apibff](https://github.com/Guidev123/YourSneakerEnterprise/assets/155389912/36113818-7642-4563-8f21-090d76231d61)
+
+<br/>
+<br/>
+<br/>
+<h1>API de Pedido</h1>
+
+
+![pedido](https://github.com/Guidev123/YourSneakerEnterprise/assets/155389912/b8bace60-1c62-48f9-a941-1e5f79aa51ae)
+
