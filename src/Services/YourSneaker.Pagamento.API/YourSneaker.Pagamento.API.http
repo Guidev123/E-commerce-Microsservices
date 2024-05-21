@@ -1,6 +1,0 @@
-@YourSneaker.Pagamento.API_HostAddress = http://localhost:5122
-
-GET {{YourSneaker.Pagamento.API_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

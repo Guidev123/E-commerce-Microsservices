@@ -97,10 +97,10 @@ textarea {
 
 
 .shift-right {
-    padding-left: 20px; /* Ajuste este valor conforme necessário */
+    padding-left: 20px;
 }
 .shift-left {
-    padding-right: 20px; /* Ajuste este valor conforme necessário */
+    padding-right: 20px;
 }
 .button-right {
     float: right;

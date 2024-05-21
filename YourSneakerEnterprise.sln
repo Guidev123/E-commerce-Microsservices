@@ -57,9 +57,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Compras", "Compras", "{AD3A
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YourSneaker.BFF.Compras", "src\Api BFF\YourSneaker.BFF.Compras\YourSneaker.BFF.Compras.csproj", "{E7ED377E-46A3-46D1-B804-505B555220CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YourSneaker.Pedido.Domain", "src\Services\YourSneaker.Pedido.Domain\YourSneaker.Pedido.Domain.csproj", "{2D388BDF-33E5-48E3-B972-EAF1B1CB297A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YourSneaker.Pedido.Domain", "src\Services\YourSneaker.Pedido.Domain\YourSneaker.Pedido.Domain.csproj", "{2D388BDF-33E5-48E3-B972-EAF1B1CB297A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YourSneaker.Pedido.Infra", "src\Services\YourSneaker.Pedido.Infra\YourSneaker.Pedido.Infra.csproj", "{CAFBE11A-407F-43D4-AF54-A0ADEE7EF59D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YourSneaker.Pedido.Infra", "src\Services\YourSneaker.Pedido.Infra\YourSneaker.Pedido.Infra.csproj", "{CAFBE11A-407F-43D4-AF54-A0ADEE7EF59D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YourSneaker.Pagamento.SneakerPag", "src\Services\YourSneaker.Pagamento.SneakerPag\YourSneaker.Pagamento.SneakerPag.csproj", "{76B0317A-4F57-4895-B9F1-6402CB592F2F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -119,6 +121,10 @@ Global
 		{CAFBE11A-407F-43D4-AF54-A0ADEE7EF59D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CAFBE11A-407F-43D4-AF54-A0ADEE7EF59D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CAFBE11A-407F-43D4-AF54-A0ADEE7EF59D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76B0317A-4F57-4895-B9F1-6402CB592F2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76B0317A-4F57-4895-B9F1-6402CB592F2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76B0317A-4F57-4895-B9F1-6402CB592F2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76B0317A-4F57-4895-B9F1-6402CB592F2F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -152,6 +158,7 @@ Global
 		{E7ED377E-46A3-46D1-B804-505B555220CE} = {AD3A8D29-F072-4202-B78A-6E616D47C5B9}
 		{2D388BDF-33E5-48E3-B972-EAF1B1CB297A} = {C0FD6319-2C39-4FAC-9AEC-E06D8D8D40D6}
 		{CAFBE11A-407F-43D4-AF54-A0ADEE7EF59D} = {C0FD6319-2C39-4FAC-9AEC-E06D8D8D40D6}
+		{76B0317A-4F57-4895-B9F1-6402CB592F2F} = {C21E6C2C-CE88-4D64-AB54-A4F833CFAA06}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {99F1D630-8420-47C2-9578-4BBA0E2DF4E7}
