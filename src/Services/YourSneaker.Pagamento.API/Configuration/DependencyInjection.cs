@@ -1,4 +1,5 @@
-﻿using YourSneaker.WebAPI.Core.User;
+﻿using YourSneaker.Pagamento.API.Data;
+using YourSneaker.WebAPI.Core.User;
 
 namespace YourSneaker.Pagamento.API.Configuration
 {

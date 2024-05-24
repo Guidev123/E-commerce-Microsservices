@@ -1,4 +1,6 @@
-﻿using YourSneaker.WebAPI.Core.Identidade;
+﻿using Microsoft.EntityFrameworkCore;
+using YourSneaker.Pagamento.API.Data;
+using YourSneaker.WebAPI.Core.Identidade;
 
 namespace YourSneaker.Pagamento.API.Configuration
 {

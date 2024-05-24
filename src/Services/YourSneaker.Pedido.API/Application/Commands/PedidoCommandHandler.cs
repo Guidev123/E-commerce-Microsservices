@@ -1,6 +1,8 @@
 ﻿using FluentValidation.Results;
 using MediatR;
 using YourSneaker.Core.Messages;
+using YourSneaker.Core.Messages.Integration;
+using YourSneaker.MessageBus;
 using YourSneaker.Pedido.API.Application.DTO;
 using YourSneaker.Pedido.API.Application.Events;
 using YourSneaker.Pedido.Domain.Descontos;
@@ -14,12 +16,15 @@ namespace YourSneaker.Pedido.API.Application.Commands
     {
         private readonly IPedidoRepository _pedidoRepository;
         private readonly ICupomRepository _cupomRepository;
+        private readonly IMessageBus _bus;
 
         public PedidoCommandHandler(ICupomRepository cupomRepository,
-                                    IPedidoRepository pedidoRepository)
+                                    IPedidoRepository pedidoRepository,
+                                    IMessageBus bus)
         {
             _cupomRepository = cupomRepository;
             _pedidoRepository = pedidoRepository;
+            _bus = bus;
         }
 
         public async Task<ValidationResult> Handle(AdicionarPedidoCommand message, CancellationToken cancellationToken)
@@ -37,7 +42,7 @@ namespace YourSneaker.Pedido.API.Application.Commands
             if (!ValidarPedido(pedido)) return ValidationResult;
 
             // PROCESSA PAGAMENTO
-            if (!ProcessarPagamento(pedido)) return ValidationResult;
+            if (!await ProcessarPagamento(pedido, message)) return ValidationResult;
 
             // CASO O PAGAMENTO ESTEJA OK!
             pedido.AutorizarPedido();
@@ -120,9 +125,25 @@ namespace YourSneaker.Pedido.API.Application.Commands
             return true;
         }
 
-        public bool ProcessarPagamento(Pedidos pedido)
+        public async Task<bool> ProcessarPagamento(Pedidos pedido, AdicionarPedidoCommand message)
         {
-            return true;
+            var pedidoIniciadoMessage = new PedidoIniciadoIntegrationEvent
+            {
+                PedidoId = pedido.Id,
+                ClienteId = pedido.ClienteId,
+                Valor = pedido.ValorTotal,
+                TipoPagamento = 1, // FIXO PARA TIPO CREDITO
+                NumeroCartao = message.NumeroCartao,
+                MesAnoVencimento = message.ExpiracaoCartao,
+                CVV = message.CvvCartao
+            };
+            //                                   Passando essa mensagem ============= Esperando essa
+            var result = await _bus.RequestAsync<PedidoIniciadoIntegrationEvent, ResponseMessage>(pedidoIniciadoMessage);
+
+            if (result.ValidationResult.IsValid) return true;
+            foreach (var erro in result.ValidationResult.Errors) AdicionarErro(erro.ErrorMessage);
+
+            return false;
         }
     }
 }
