@@ -44,6 +44,15 @@ namespace YourSneaker.Pedido.Domain.Pedidos
         {
             PedidoStatus = PedidoStatus.Autorizado;
         }
+        public void CancelarPedido()
+        {
+            PedidoStatus = PedidoStatus.Cancelado;
+        }
+
+        public void FinalizarPedido()
+        {
+            PedidoStatus = PedidoStatus.Pago;
+        }
         public void AtribuirCupom(Cupom cupom)
         {
             CupomUtilizado = true;

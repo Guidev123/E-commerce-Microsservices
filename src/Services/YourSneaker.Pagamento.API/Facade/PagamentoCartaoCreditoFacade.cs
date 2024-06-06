@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Options;
+using YourSneaker.Core.Messages.Integration;
 using YourSneaker.Pagamento.API.Models;
 using YourSneaker.Pagamento.SneakerPag;
 
@@ -41,6 +42,26 @@ namespace YourSneaker.Pagamento.API.Facade
 
             return ParaTransacao(await transacao.AuthorizeCardTransaction());
         }
+        public async Task<Transacao> CapturarPagamento(Transacao transacao)
+        {
+            var sneakerPagService = new SneakerPagService(_pagamentoConfig.DefaultApiKey,
+                _pagamentoConfig.DefaultEncryptionKey);
+
+            var transaction = ParaTransaction(transacao, sneakerPagService);
+
+            return ParaTransacao(await transaction.CaptureCardTransaction());
+        }
+
+        public async Task<Transacao> CancelarAutorizacao(Transacao transacao)
+        {
+            var sneakerPagService = new SneakerPagService(_pagamentoConfig.DefaultApiKey,
+                _pagamentoConfig.DefaultEncryptionKey);
+
+            var transaction = ParaTransaction(transacao, sneakerPagService);
+
+            return ParaTransacao(await transaction.CancelAuthorization());
+        }
+
         public static Transacao ParaTransacao(Transaction transaction)
         {
             return new Transacao
@@ -54,6 +75,20 @@ namespace YourSneaker.Pagamento.API.Facade
                 DataTransacao = transaction.TransactionDate,
                 NSU = transaction.Nsu,
                 TID = transaction.Tid
+            };
+        }
+
+        public static Transaction ParaTransaction(Transacao transacao, SneakerPagService sneakerPagService)
+        {
+            return new Transaction(sneakerPagService)
+            {
+                Status = (TransactionStatus)transacao.Status,
+                Amount = transacao.ValorTotal,
+                CardBrand = transacao.BandeiraCartao,
+                AuthorizationCode = transacao.CodigoAutorizacao,
+                Cost = transacao.CustoTransacao,
+                Nsu = transacao.NSU,
+                Tid = transacao.TID
             };
         }
     }

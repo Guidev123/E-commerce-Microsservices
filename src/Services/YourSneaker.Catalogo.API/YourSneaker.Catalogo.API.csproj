@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Building Blocks\YourSneaker.Core\YourSneaker.Core.csproj" />
+    <ProjectReference Include="..\..\Building Blocks\YourSneaker.MessageBus\YourSneaker.MessageBus.csproj" />
     <ProjectReference Include="..\..\Building Blocks\YourSneaker.WebAPI.Core\YourSneaker.WebAPI.Core.csproj" />
   </ItemGroup>
 

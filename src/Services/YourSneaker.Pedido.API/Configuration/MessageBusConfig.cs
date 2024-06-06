@@ -1,5 +1,6 @@
 ﻿using YourSneaker.Core.Tools;
 using YourSneaker.MessageBus;
+using YourSneaker.Pedido.API.Services;
 
 namespace YourSneaker.Pedido.API.Configuration
 {
@@ -8,7 +9,8 @@ namespace YourSneaker.Pedido.API.Configuration
         public static void AddMessageBusConfiguration(this IServiceCollection services,
             IConfiguration configuration)
         {
-            services.AddMessageBus(configuration.GetMessageQueueConnection("MessageBus"));
+            services.AddMessageBus(configuration.GetMessageQueueConnection("MessageBus"))
+                .AddHostedService<PedidoGerenciadorIntegrationHandler>();
         }
     }
 }

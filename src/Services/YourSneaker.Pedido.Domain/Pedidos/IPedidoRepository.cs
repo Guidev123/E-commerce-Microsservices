@@ -13,10 +13,13 @@ namespace YourSneaker.Pedido.Domain.Pedidos
         Task<Pedidos> ObterPorId(Guid id);
         Task<IEnumerable<Pedidos>> ObterListaPorClienteId(Guid clienteId);
         void Adicionar(Pedidos pedido);
-        void Atualizar(Pedidos pedido);  
-        DbConnection ObterConexao();  //OBTER CONEXAO DO EF PARA DAPPER
-        // Pedido Item 
-        Task<PedidoItem> ObterItemPorId(Guid id);   
+        void Atualizar(Pedidos pedido);
+
+        DbConnection ObterConexao();
+
+
+        /* Pedido Item */
+        Task<PedidoItem> ObterItemPorId(Guid id);
         Task<PedidoItem> ObterItemPorPedido(Guid pedidoId, Guid produtoId);
     }
 }

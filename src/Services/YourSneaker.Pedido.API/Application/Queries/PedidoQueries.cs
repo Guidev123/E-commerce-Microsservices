@@ -7,6 +7,7 @@ namespace YourSneaker.Pedido.API.Application.Queries
     {
         Task<PedidoDTO> ObterUltimoPedido(Guid clienteId);
         Task<IEnumerable<PedidoDTO>> ObterListaPorClienteId(Guid clienteId);
+        Task<PedidoDTO> ObterPedidosAutorizados();
     }
     public class PedidoQueries : IPedidoQueries
     {
@@ -44,7 +45,36 @@ namespace YourSneaker.Pedido.API.Application.Queries
 
             return pedidos.Select(PedidoDTO.ParaPedidoDTO);
         }
+        public async Task<PedidoDTO> ObterPedidosAutorizados()
+        {
+            // PEGAR OS ITENS DO PEDIDO E ORDENAR PELO MAIS ANTIGO
+            const string sql = @"SELECT 
+                                P.ID as 'PedidoId', P.ID, P.CLIENTEID, 
+                                PI.ID as 'PedidoItemId', PI.ID, PI.PRODUTOID, PI.QUANTIDADE 
+                                FROM PEDIDOS P 
+                                INNER JOIN PEDIDOITEMS PI ON P.ID = PI.PEDIDOID 
+                                WHERE P.PEDIDOSTATUS = 1                                
+                                ORDER BY P.DATACADASTRO";
 
+            // LOOKUP PARA MANTER O ESTADO A CADA CICLO DE REGISTRO RETORNADO
+            var lookup = new Dictionary<Guid, PedidoDTO>();
+
+            await _pedidoRepository.ObterConexao().QueryAsync<PedidoDTO, PedidoItemDTO, PedidoDTO>(sql,
+                (p, pi) =>
+                {
+                    if (!lookup.TryGetValue(p.Id, out var pedidoDTO))
+                        lookup.Add(p.Id, pedidoDTO = p);
+
+                    pedidoDTO.PedidoItems ??= new List<PedidoItemDTO>();
+                    pedidoDTO.PedidoItems.Add(pi);
+
+                    return pedidoDTO;
+
+                }, splitOn: "PedidoId,PedidoItemId");
+
+            // OBTERNDO DADOS LOOKUP
+            return lookup.Values.OrderBy(p => p.Data).FirstOrDefault();
+        }
         private PedidoDTO MapearPedido(dynamic result)
         {
             var pedido = new PedidoDTO
@@ -83,6 +113,5 @@ namespace YourSneaker.Pedido.API.Application.Queries
 
             return pedido;
         }
-
     }
 }
