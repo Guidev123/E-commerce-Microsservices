@@ -10,10 +10,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\assets\plugins\datatables\**" />
     <Compile Remove="wwwroot\assets\plugins\lightbox\**" />
+    <Compile Remove="wwwroot\lib\**" />
+    <Content Remove="wwwroot\assets\plugins\datatables\**" />
     <Content Remove="wwwroot\assets\plugins\lightbox\**" />
+    <Content Remove="wwwroot\lib\**" />
+    <EmbeddedResource Remove="wwwroot\assets\plugins\datatables\**" />
     <EmbeddedResource Remove="wwwroot\assets\plugins\lightbox\**" />
+    <EmbeddedResource Remove="wwwroot\lib\**" />
+    <None Remove="wwwroot\assets\plugins\datatables\**" />
     <None Remove="wwwroot\assets\plugins\lightbox\**" />
+    <None Remove="wwwroot\lib\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -59,20 +67,6 @@
     <None Include="wwwroot\assets\plugins\bootstrap\js\popper.min.js" />
     <None Include="wwwroot\assets\plugins\bootstrap\js\popper.min.js.map" />
     <None Include="wwwroot\assets\plugins\bs-stepper\bs-stepper.min.js" />
-    <None Include="wwwroot\assets\plugins\datatables\DataTables-1.10.20\js\dataTables.bootstrap.js" />
-    <None Include="wwwroot\assets\plugins\datatables\DataTables-1.10.20\js\dataTables.bootstrap.min.js" />
-    <None Include="wwwroot\assets\plugins\datatables\DataTables-1.10.20\js\dataTables.bootstrap4.js" />
-    <None Include="wwwroot\assets\plugins\datatables\DataTables-1.10.20\js\dataTables.bootstrap4.min.js" />
-    <None Include="wwwroot\assets\plugins\datatables\DataTables-1.10.20\js\dataTables.foundation.js" />
-    <None Include="wwwroot\assets\plugins\datatables\DataTables-1.10.20\js\dataTables.foundation.min.js" />
-    <None Include="wwwroot\assets\plugins\datatables\DataTables-1.10.20\js\dataTables.jqueryui.js" />
-    <None Include="wwwroot\assets\plugins\datatables\DataTables-1.10.20\js\dataTables.jqueryui.min.js" />
-    <None Include="wwwroot\assets\plugins\datatables\DataTables-1.10.20\js\dataTables.semanticui.js" />
-    <None Include="wwwroot\assets\plugins\datatables\DataTables-1.10.20\js\dataTables.semanticui.min.js" />
-    <None Include="wwwroot\assets\plugins\datatables\DataTables-1.10.20\js\jquery.dataTables.js" />
-    <None Include="wwwroot\assets\plugins\datatables\DataTables-1.10.20\js\jquery.dataTables.min.js" />
-    <None Include="wwwroot\assets\plugins\datatables\datatables.js" />
-    <None Include="wwwroot\assets\plugins\datatables\datatables.min.js" />
     <None Include="wwwroot\assets\plugins\dropzone\dropzone-amd-module.js" />
     <None Include="wwwroot\assets\plugins\dropzone\dropzone.js" />
     <None Include="wwwroot\assets\plugins\dropzone\dropzone.js.map" />
