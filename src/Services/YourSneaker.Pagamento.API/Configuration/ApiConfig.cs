@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using YourSneaker.Pagamento.API.Data;
+using YourSneaker.Pagamento.API.Facade;
 using YourSneaker.WebAPI.Core.Identidade;
 
 namespace YourSneaker.Pagamento.API.Configuration
@@ -20,6 +21,9 @@ namespace YourSneaker.Pagamento.API.Configuration
                 .AllowAnyHeader());
             });
             services.AddControllers();
+
+            services.Configure<PagamentoConfig>(configuration.GetSection("PagamentoConfig")); // ALIMENTANDO OS DADOS NA APP SETTINGS
+
             services.AddEndpointsApiExplorer();
         }
         public static void UseApiConfig(this IApplicationBuilder app, IWebHostEnvironment env)
