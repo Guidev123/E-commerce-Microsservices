@@ -48,7 +48,7 @@ namespace YourSneaker.Pedido.API.Application.Queries
         public async Task<PedidoDTO> ObterPedidosAutorizados()
         {
             // PEGAR OS ITENS DO PEDIDO E ORDENAR PELO MAIS ANTIGO
-            const string sql = @"SELECT 
+            const string sql = @"SELECT TOP 1
                                 P.ID as 'PedidoId', P.ID, P.CLIENTEID, 
                                 PI.ID as 'PedidoItemId', PI.ID, PI.PRODUTOID, PI.QUANTIDADE 
                                 FROM PEDIDOS P 
