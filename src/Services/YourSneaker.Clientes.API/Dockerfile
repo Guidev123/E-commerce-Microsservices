@@ -9,17 +9,17 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["src/Services/YourSneaker.Cliente.API/YourSneaker.Cliente.API.csproj", "src/Services/YourSneaker.Cliente.API/"]
-RUN dotnet restore "./src/Services/YourSneaker.Cliente.API/YourSneaker.Cliente.API.csproj"
+COPY ["src/Services/YourSneaker.Clientes.API/YourSneaker.Clientes.API/YourSneaker.Clientes.API.csproj", "src/Services/YourSneaker.Clientes.API/YourSneaker.Clientes.API/"]
+RUN dotnet restore "./src/Services/YourSneaker.Clientes.API/YourSneaker.Clientes.API/YourSneaker.Clientes.API.csproj"
 COPY . .
-WORKDIR "/src/src/Services/YourSneaker.Cliente.API"
-RUN dotnet build "./YourSneaker.Cliente.API.csproj" -c $BUILD_CONFIGURATION -o /app/build
+WORKDIR "/src/src/Services/YourSneaker.Clientes.API/YourSneaker.Clientes.API"
+RUN dotnet build "./YourSneaker.Clientes.API.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./YourSneaker.Cliente.API.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "./YourSneaker.Clientes.API.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "YourSneaker.Cliente.API.dll"]
+ENTRYPOINT ["dotnet", "YourSneaker.Clientes.API.dll"]
