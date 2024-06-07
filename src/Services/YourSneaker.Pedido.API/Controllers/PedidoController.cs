@@ -25,13 +25,6 @@ namespace YourSneaker.Pedido.API.Controllers
             _pedidoQueries = pedidoQueries;
         }
 
-        //[HttpPost("pedido")]
-        //public async Task<IActionResult> AdicionarPedido(AdicionarPedidoCommand pedido)
-        //{
-        //    pedido.ClienteId = _user.ObterUserId();
-        //    return CustomResponse(await _mediator.EnviarComando(pedido));
-        //}
-
 
         [HttpPost("pedido")]
         public async Task<IActionResult> AdicionarPedido(PedidoTransacaoDTO pedido)

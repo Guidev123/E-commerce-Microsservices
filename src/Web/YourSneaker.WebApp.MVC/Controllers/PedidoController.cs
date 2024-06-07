@@ -55,21 +55,21 @@ namespace YourSneaker.WebApp.MVC.Controllers
             pedidoTransacao.Endereco = endereco;
 
             //OBTEM CARRINHO
-            var carrinho1 = await _comprasBFFService.ObterCarrinho();
-            pedidoTransacao.PedidoItems = carrinho1.Itens;
-            pedidoTransacao.ValorTotal = carrinho1.ValorTotal;
-            pedidoTransacao.CumpomUtilizado = carrinho1.CumpomUtilizado;
-            pedidoTransacao.Desconto = carrinho1.Desconto;
+            var carrinho = await _comprasBFFService.ObterCarrinho();
+            pedidoTransacao.PedidoItems = carrinho.Itens;
+            pedidoTransacao.ValorTotal = carrinho.ValorTotal;
+            pedidoTransacao.CumpomUtilizado = carrinho.CumpomUtilizado;
+            pedidoTransacao.Desconto = carrinho.Desconto;
 
             var retorno = await _comprasBFFService.FinalizarPedido(pedidoTransacao);
 
             if (ResponsePossuiErros(retorno))
             {
-                var carrinho = await _comprasBFFService.ObterCarrinho();
-                if (carrinho.Itens.Count == 0) return RedirectToAction("Index", "Carrinho");
+                var carrinhoVerificaQuantidade = await _comprasBFFService.ObterCarrinho();
+                if (carrinhoVerificaQuantidade.Itens.Count == 0) return RedirectToAction("Index", "Carrinho");
 
                 
-                var pedidoMap = _comprasBFFService.MapearParaPedido(carrinho, endereco);
+                var pedidoMap = _comprasBFFService.MapearParaPedido(carrinhoVerificaQuantidade, endereco);
                 return View("Pagamento", pedidoMap);
             }
 
