@@ -178,24 +178,22 @@ https://github.com/Guidev123/YourSneakerEnterprise/assets/155389912/b5ee6760-f33
   <h3>3. Ajustar as Configurações de Inicialização</h3>
     <p>Certifique-se de que todos os projetos estão configurados para inicializar no ambiente de desenvolvimento (DEV). Abra o arquivo de configuração de inicialização e ajuste as configurações conforme necessário. No arquivo <code>launchSettings.json</code> de cada projeto, verifique se o ambiente está definido como <code>Development</code>.</p>
     <pre><code>{
-  "profiles": {
-    "IIS Express": {
+    "IIS Express DEV": {
       "commandName": "IISExpress",
       "launchBrowser": true,
+      "launchUrl": "swagger",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "ProjectName": {
-      "commandName": "Project",
+    "IIS Express PROD": {
+      "commandName": "IISExpress",
       "launchBrowser": true,
-      "applicationUrl": "http://localhost:5000",
+      "launchUrl": "swagger",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Production"
       }
-    }
-  }
-}
+    },
     </code></pre>
 
   <h3>4. Criar e Iniciar o Contêiner Docker com RabbitMQ</h3>
