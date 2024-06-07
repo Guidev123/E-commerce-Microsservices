@@ -25,8 +25,7 @@
 <strong>Arquitetura: </strong>
 <br/>
 
-![Arquitetura](https://github.com/Guidev123/YourSneakerEnterprise/assets/155389912/66b16d2c-697a-4bfd-973a-ba706521f554)
-
+![Screenshot_8](https://github.com/Guidev123/YourSneakerEnterprise/assets/155389912/e3d8aef4-f28b-473e-843a-86463f1be828)
 
 <br/>
 <strong>Outros serviços utilizados:</strong>
@@ -37,15 +36,16 @@
 <li> Swagger UI com suporte para JWT💼</li>
 <h2>Descrição</h2>
 
-<strong>O projeto consiste em um sistema composto por 6 APIs REST e 1 API Gateway:
+<strong>O projeto consiste em um sistema composto por 6 APIs REST, 1 API Gateway e App web MVC:
 </strong>
 <br/>
-<li>Carrinho: Responsável pelo gerenciamento de carrinhos de compras.</li>
-<li>Cliente: Gerencia informações relacionadas a criação de clientes.</li>
-<li>Pedido: Responsável pelo processamento e gerenciamento de pedidos.</li>
-<li>Identidade: Lida com autenticação e autorização de usuários.</li>
-<li>Pagamento: Gerencia transações de pagamento.</li>
-<li>Catálogo: Responsável pelo gerenciamento de produtos e catálogo.</li>
+<li>Identidade: API responsável por lidar com autenticação e autorização de usuários.</li>
+<li>Pagamento: API responsável por gerenciar transações de pagamento.</li>
+<li>Catálogo: API responsável pelo gerenciamento de produtos e catálogo.</li>
+<li>Carrinho: API responsável pela adição, remoção e edição de itens do carrinho de compras, além de implementar cupons de desconto.</li>
+<li>Clientes: API responsável pelo gerenciamento dos dados dos clientes, como CPF e nome, além de validar essas informações.</li>
+<li>Pedido: API responsável pelo processamento e gerenciamento de pedidos.</li>
+<li>Pagamento: API responsável por aprovar pedidos e simular um gateway de pagamento.</li>
 <br/>
 <strong>O API Gateway de Compras atua como um ponto de entrada para as funcionalidades relacionadas a compras, coordenando as chamadas para as APIs individuais.</strong>
 
@@ -71,9 +71,8 @@
 <br/>
   
 <h1></h1>
-<h1>Funcionamento da aplicação até agora</h1>
+<h1>Funcionamento da aplicação</h1>
 <br/>
-<strong>(Não está finalizada, irei atualizando o video de acordo com o desenvolvimento. Esta pendente somente a API de Pagamento. ULTIMA ATUALIZAÇÃO 19/05/2024)</strong>
 <br/>
 <br/>
 <br/>
@@ -142,4 +141,69 @@ https://github.com/Guidev123/YourSneakerEnterprise/assets/155389912/b5ee6760-f33
 
 
 ![pedido](https://github.com/Guidev123/YourSneakerEnterprise/assets/155389912/b8bace60-1c62-48f9-a941-1e5f79aa51ae)
+
+<br/>
+<br/>
+<br/>
+<h1>API de Pagamento e Gateway de pagamento</h1>
+
+![Screenshot_9](https://github.com/Guidev123/YourSneakerEnterprise/assets/155389912/e01929d3-aa58-4c9f-b4d2-ab497fa78c90)
+
+![Screenshot_10](https://github.com/Guidev123/YourSneakerEnterprise/assets/155389912/d1c4c082-8143-45d4-8b99-f271e52cf355)
+
+
+
+<h1>Tutorial para Rodar o Projeto Localmente</h1>
+<p>Este guia irá orientá-lo a configurar e rodar o projeto localmente. Certifique-se de seguir cada etapa cuidadosamente.</p>
+
+  <h2>Pré-requisitos</h2>
+    <ul>
+        <li>.NET Core SDK</li>
+        <li>Docker</li>
+        <li>RabbitMQ</li>
+    </ul>
+
+  <h2>Passo a Passo</h2>
+
+  <h3>1. Clonar o Repositório</h3>
+    <p>Primeiro, clone o repositório do projeto para o seu ambiente local:</p>
+    <pre><code>git clone 
+    </code></pre>
+
+  <h3>2. Criar o Banco de Dados</h3>
+    <p>Use o comando <code>update-database</code> para criar o banco de dados:</p>
+    <pre><code>dotnet ef database update
+    </code></pre>
+
+  <h3>3. Ajustar as Configurações de Inicialização</h3>
+    <p>Certifique-se de que todos os projetos estão configurados para inicializar no ambiente de desenvolvimento (DEV). Abra o arquivo de configuração de inicialização e ajuste as configurações conforme necessário. No arquivo <code>launchSettings.json</code> de cada projeto, verifique se o ambiente está definido como <code>Development</code>.</p>
+    <pre><code>{
+    "IIS Express DEV": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "IIS Express PROD": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Production"
+      }
+    },
+    </code></pre>
+
+  <h3>4. Criar e Iniciar o Contêiner Docker com RabbitMQ</h3>
+    <p>Para criar e iniciar um contêiner Docker com RabbitMQ, siga os passos abaixo:</p>
+    
+  ![image](https://github.com/Guidev123/YourSneakerEnterprise/assets/155389912/48b780fa-e14e-47f5-b6e6-5f8fed527719)
+
+
+  <h3>5. Inicializar o Projeto</h3>
+    <p>Por fim, inicialize o projeto no ambiente de desenvolvimento. No terminal, navegue até a pasta de cada projeto e execute:</p>
+    <pre><code>dotnet run
+    </code></pre>
 
