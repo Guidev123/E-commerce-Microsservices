@@ -1,6 +1,6 @@
 # YourSneakerEnterprise👟
 
-<h2>Este projeto foi desenvolvido utilizando as seguintes tecnologias:</h2>
+<h2>Este projeto é um E-commerce 100% funcional. Foi desenvolvido utilizando as seguintes tecnologias:</h2>
 
 <li>ASP.NET🛠️</li>
 <li>C#🛠️</li>
