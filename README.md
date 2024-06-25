@@ -11,6 +11,7 @@
 <li>Docker🛠️</li>
 <li>JasonWebToken (JWT) para criptografia dos dados🛠️</li>
 <li>Javascript🛠️</li>
+<li>Dapper🛠️</li>
 <br/>
 <strong>Além disso, foram aplicados os seguintes princípios de desenvolvimento:</strong>
 
