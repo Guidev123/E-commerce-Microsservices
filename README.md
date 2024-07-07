@@ -20,7 +20,7 @@
 <li> OOP (Programação Orientada a Objetos)📜</li>
 <li> CQRS📜</li>
 <li> Clean Code📜</li>
-<li> Unit of Work📜</li>
+<li> Repository Pattern e Unit of Work📜</li>
 <li> Api BFF (Gateway)📜</li>
 <br/>
 <strong>Arquitetura: </strong>
