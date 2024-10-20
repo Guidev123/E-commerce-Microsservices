@@ -19,7 +19,7 @@ namespace YourSneaker.Pagamento.API.Facade
             var sneakerPagSvc = new SneakerPagService(_pagamentoConfig.DefaultApiKey,
                                                    _pagamentoConfig.DefaultEncryptionKey);
 
-            var cardHashGen = new CardHash(sneakerPagSvc) // PASSANDO DADOS DO CARTAO PARA GERAR UM CARD HASH
+            var cardHashGen = new CardHash(sneakerPagSvc)
             {
                 CardNumber = pagamento.CartaoCredito.NumeroCartao,
                 CardHolderName = pagamento.CartaoCredito.NomeCartao,
@@ -27,7 +27,7 @@ namespace YourSneaker.Pagamento.API.Facade
                 CardCvv = pagamento.CartaoCredito.CVV
             };
 
-            string cardHash = cardHashGen.Generate(); // GERANDO UMA STRING CARD HASH PARA REPRESENTAR O CARTAO DO CLIENTE 
+            string cardHash = cardHashGen.Generate();
 
             var transacao = new Transaction(sneakerPagSvc)
             {
